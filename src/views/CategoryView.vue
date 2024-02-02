@@ -49,8 +49,8 @@
             <div class="mb-10 bg-center bg-no-repeat bg-gray-800 bg-blend-multiply w-16 h-16 relative">
                 <img 
                     loading="lazy"
-                    class="w-16 h-16 opacity-40 object-cover"
-                    src="http://localhost:8000/archives/images/hero/1706537690_2_2.jpg" 
+                    class="w-16 h-16 object-cover"
+                    :src="apiConfig.urlBack+category.image_hero_uri+category.image_hero" 
                     alt="imagen portada"
                 >
                 <div class="absolute right-0 -bottom-5 left-0 px-1 mx-auto text-center flex items-center justify-center flex-col cursor-pointer" @click="categoryId = category.id">
@@ -88,7 +88,7 @@
         <img 
             loading="lazy"
             class="w-1/3 object-cover rounded-r-lg"
-            :src="apiConfig.urlBack+'archives/images/product_hero/'+ product.image_hero" 
+            :src="apiConfig.urlBack+product.image_hero_uri+ product.image_hero" 
             alt="imagen portada"
         >
       </div>
@@ -98,7 +98,6 @@
 
       <!-- sugeridos -->
   <div class="mb-10">
-    <h2 class="text-center font-bold text-4xl mb-2">Sugeridos</h2>
 
     <CardSuggestion 
       :productsDates="apiProducts.productsDates"

@@ -19,8 +19,8 @@ const props = defineProps({
       <div class="mb-10 bg-center bg-no-repeat bg-gray-800 bg-blend-multiply w-full relative">
           <img 
               loading="lazy"
-              class="w-full opacity-40 object-cover"
-              :src="apiConfig.urlBack+'archives/images/hero/1706537690_2_2.jpg'" 
+              class="w-full object-cover"
+              :src="apiConfig.urlBack+level.image_hero_uri+level.image_hero" 
               alt="imagen portada"
           >
           <router-link :to="{name: 'categories', params: {levelId: level.id}}">
