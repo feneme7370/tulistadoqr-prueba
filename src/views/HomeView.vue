@@ -6,7 +6,7 @@
   import MenuRouter from '@/components/menus/MenuRouter.vue'
   import CardSuggestion from '@/components/cards/CardSuggestion.vue'
 
-  import { useProductsStore } from '../stores/products.js'
+  import { useProductsStore } from '@/stores/products'
 
   const apiProducts = useProductsStore()
   
