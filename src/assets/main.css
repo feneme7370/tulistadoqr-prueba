@@ -1,3 +1,16 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.f-dosis{
+    font-family: 'Dosis', sans-serif;
+}
+.f-montserrat{
+    font-family: 'Montserrat', sans-serif;
+}
+.f-nunito{
+    font-family: 'Nunito', sans-serif;
+}
+
+
+

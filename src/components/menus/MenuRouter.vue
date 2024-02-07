@@ -24,12 +24,14 @@ const props = defineProps({
               alt="imagen portada"
           >
           <router-link :to="{name: 'categories', params: {levelId: level.id}}">
+
           <div class="absolute right-0 -bottom-5 left-0 px-5 mx-auto max-w-screen-xl text-center flex items-center justify-center flex-col cursor-pointer">
-              <a class="bg-gray-100 w-full border-2 border-gray-400">
-                <h1 class="mb-2 text-3xl font-extrabold tracking-tight leading-none text-gray-800 md:text-5xl lg:text-6xl">{{ level.name }}</h1>
-                <p class="mb-2 text-lg font-normal text-gray-600 lg:text-xl sm:px-16 lg:px-48">{{ level.name}}</p>
-              </a>
-            </div>
+            <a class="bg-orange-100 w-full border-2 border-orange-200">
+              <h1 class="my-2 text-3xl font-extrabold tracking-tight leading-none text-gray-800 md:text-5xl lg:text-6xl">{{ level.name }}</h1>
+              <p class="mb-2 text-lg font-normal text-gray-600 lg:text-xl sm:px-16 lg:px-48">{{ level.name}}</p>
+            </a>
+          </div>
+
           </router-link>
       </div>
 

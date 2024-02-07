@@ -14,7 +14,7 @@
 <template>
 
 
-<footer class="bg-gray-100 dark:bg-gray-900">
+<footer class="bg-gray-100 border-t border-gray-300 dark:bg-gray-900">
     <div class="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
         <div class="flex flex-col justify-between w-full">
           <div class="mb-3">
