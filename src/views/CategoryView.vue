@@ -1,23 +1,28 @@
 <script setup>
-  import ImageHero from '@/components/layouts/ImageHero.vue';
-  import Footer from '@/components/layouts/Footer.vue'
-  import CardProduct from '@/components/cards/CardProduct.vue';
-  import CardProductSuggestion from '@/components/cards/CardProductSuggestion.vue';
+  import ImageHero from '../components/layouts/ImageHero.vue';
+  import Footer from '../components/layouts/Footer.vue'
+  import CardProduct from '../components/cards/CardProduct.vue';
+  import CardProductSuggestion from '../components/cards/CardProductSuggestion.vue';
 
   import { ref } from 'vue';
-  import { useProductsStore } from '@/stores/products'
-  import { useConfigStore } from '@/stores/config';
-  import { useRoute } from 'vue-router';
+  import { useProductsStore } from '../stores/products'
+  import { useConfigStore } from '../stores/config';
+  import { useRoute, useRouter } from 'vue-router';
   import { RouterLink } from 'vue-router';
 
     const apiProducts = useProductsStore()
     const apiConfig = useConfigStore()
 
     const route = useRoute()
+    const router = useRouter()
 
     // capturar id de la ruta
     const {levelId} = route.params
     const categoryId = ref('')
+
+    if(!apiProducts){
+      router.push({ name : home })
+    }
 
 </script>
 
@@ -46,15 +51,18 @@
     <div class="flex flex-wrap items-center justify-center gap-3">
 
       <div v-for="category in apiProducts.categoriesDates" :key="category.id">
-        
-            <div class="mb-10 bg-center bg-no-repeat  w-16 h-16 relative">
+            <div 
+              v-if="category.level_id == levelId" 
+              class="mb-10 bg-center bg-no-repeat w-16 h-16 cursor-pointer relative"
+              v-on:click="categoryId = category.id"
+            >
                 <img 
                     loading="lazy"
                     class="w-16 h-16 object-cover rounded-xl"
                     :src="apiConfig.urlBack+category.image_hero_uri+category.image_hero" 
                     alt="imagen portada"
                 >
-                <div class="absolute right-0 -bottom-5 left-0 px-1 mx-auto text-center flex items-center justify-center flex-col cursor-pointer" @click="categoryId = category.id">
+                <div class="absolute right-0 -bottom-5 left-0 px-1 mx-auto text-center flex items-center justify-center flex-col">
                     <a class="bg-orange-100 w-full border-2 border-orange-200 py-1 text-xs tracking-tight leading-none text-gray-800 md:text-md lg:text-lg">
                       {{ category.name }}
                     </a>

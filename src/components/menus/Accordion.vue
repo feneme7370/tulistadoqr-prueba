@@ -49,7 +49,7 @@ const toggleAccordion = (index) => {
               type="button"
               class="accordion-button px-4 py-3 mb-2 w-full flex justify-between items-center"
               :class="{ 'active': activeIndices.includes(index) }"
-              @click="toggleAccordion(index)"
+              v-on:click="toggleAccordion(index)"
             >
 
             <div class="flex justify-start items-center gap-3 px-3">

@@ -23,7 +23,7 @@
                     loading="lazy" 
                     :src="apiConfig.urlBack+'archives/images/logo/'+ companiesDates.image_logo" 
                     class="h-8 me-3" 
-                    alt="FlowBite Logo" 
+                    alt="Logo" 
                    />
                   <span class="self-center text-3xl font-semibold whitespace-nowrap dark:text-white">{{ companiesDates.name }}</span>
               </a>
