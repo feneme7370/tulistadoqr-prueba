@@ -20,6 +20,9 @@
     const {levelId} = route.params
     const categoryId = ref('')
 
+    if(!levelId){
+      router.push({ name : home })
+    }
     if(!apiProducts){
       router.push({ name : home })
     }
