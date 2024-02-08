@@ -39,7 +39,7 @@
     <router-link :to="{name: 'home'}">
           <div class="mb-5 px-5 mx-auto max-w-screen-xl text-center flex items-center justify-center flex-col">
               <a class="bg-orange-100 w-full border-2 border-orange-200">
-                <h1 class="my-2 text-3xl font-extrabold tracking-tight leading-none text-gray-800 md:text-5xl lg:text-6xl">Inicio</h1>
+                <h1 class="my-2 text-3xl font-extrabold tracking-tight leading-none text-gray-800 md:text-5xl lg:text-6xl">Inicio</h1> 
               </a>
             </div>
     </router-link>
