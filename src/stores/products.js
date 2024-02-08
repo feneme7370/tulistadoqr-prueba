@@ -1,6 +1,6 @@
 import { ref, computed, onMounted } from 'vue'
 import { defineStore } from 'pinia'
-import APIProduct from '@/services/APIProduct'
+import APIProduct from '../services/APIProduct'
 
 export const useProductsStore = defineStore('apiProducts', () => {
 
@@ -12,22 +12,20 @@ export const useProductsStore = defineStore('apiProducts', () => {
 
     const menuSelected = ref('')
 
+    const loadDates = async () => {
+        const dataProducts = await APIProduct.getProducts()
+
+        productsDates.value = await dataProducts.data['responseProducts']
+        suggestionsDates.value = await dataProducts.data['responseSuggestions']
+        levelsDates.value = await dataProducts.data['responseLevels']
+        categoriesDates.value = await dataProducts.data['responseCategories']
+        companiesDates.value = await dataProducts.data['responseCompany'][0]
+
+        menuSelected.value = await dataProducts.data['responseCompany'][0].type_menu
+    }
     onMounted(async()=>{
-            const dataProducts = await APIProduct.getProducts()
-
-            productsDates.value = dataProducts.data['responseProducts']
-            suggestionsDates.value = dataProducts.data['responseSuggestions']
-            levelsDates.value = dataProducts.data['responseLevels']
-            categoriesDates.value = dataProducts.data['responseCategories']
-            companiesDates.value = dataProducts.data['responseCompany'][0]
-
-            menuSelected.value = dataProducts.data['responseCompany'][0].type_menu
+        loadDates()
     })
-
-    // async function getProductsDates(){
-    //     const data = await APIProduct.getProducts()
-    //     productsDates = data
-    // }
 
     return {
         productsDates,
@@ -35,7 +33,9 @@ export const useProductsStore = defineStore('apiProducts', () => {
         levelsDates,
         companiesDates,
         suggestionsDates,
-        menuSelected
+        menuSelected,
+
+        loadDates
     }
  
 })

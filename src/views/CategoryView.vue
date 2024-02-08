@@ -4,21 +4,32 @@
   import CardProduct from '../components/cards/CardProduct.vue';
   import CardProductSuggestion from '../components/cards/CardProductSuggestion.vue';
 
-  import { ref } from 'vue';
+  import { ref, onMounted } from 'vue';
   import { useProductsStore } from '../stores/products'
   import { useConfigStore } from '../stores/config';
   import { useRoute, useRouter } from 'vue-router';
   import { RouterLink } from 'vue-router';
-
-    const apiProducts = useProductsStore()
+  
+  const apiProducts = useProductsStore()
+  apiProducts.loadDates()
     const apiConfig = useConfigStore()
 
     const route = useRoute()
     const router = useRouter()
 
+
     // capturar id de la ruta
     const {levelId} = route.params
     const categoryId = ref('')
+
+ 
+    // if(!apiProducts.categoriesDates[0].id || apiProducts.categoriesDates[0].id == null || apiProducts.categoriesDates[0].id == ''){
+    //   router.push({name: home})
+    // }
+    // console.log(apiProducts.categoriesDates[0].id);
+    console.log(levelId);
+    console.log(categoryId);
+    // console.log(apiProducts.categoriesDates[0].id);
 
     if(!levelId){
       router.push({ name : home })

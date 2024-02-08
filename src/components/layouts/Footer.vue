@@ -1,6 +1,6 @@
 <script setup>
-    import SocialIcons from '@/components/layouts/SocialIcons.vue'
-    import { useConfigStore } from '@/stores/config';
+    import SocialIcons from '../../components/layouts/SocialIcons.vue'
+    import { useConfigStore } from '../../stores/config';
     const apiConfig = useConfigStore()
 
     const props = defineProps({
@@ -21,7 +21,7 @@
               <a class="flex items-center justify-center">
                   <img
                     loading="lazy" 
-                    :src="apiConfig.urlBack+'archives/images/logo/'+ companiesDates.image_logo" 
+                    :src="apiConfig.urlBack+companiesDates.image_logo_uri+ companiesDates.image_logo" 
                     class="h-8 me-3" 
                     alt="Logo" 
                    />
