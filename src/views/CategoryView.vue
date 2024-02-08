@@ -57,7 +57,7 @@
             <div 
               v-if="category.level_id == levelId" 
               class="mb-10 bg-center bg-no-repeat w-16 h-16 cursor-pointer relative"
-              v-on:click="categoryId = category.id"
+              v-on:click.native="categoryId = category.id"
             >
                 <img 
                     loading="lazy"
