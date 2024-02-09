@@ -1,6 +1,6 @@
 <script setup>
-  import { useConfigStore } from '@/stores/config';
-  import { usePriceCurrency } from '@/composables/usePriceCurrency.js'
+  import { useConfigStore } from '../../stores/config';
+  import { usePriceCurrency } from '../../composables/usePriceCurrency.js'
   const apiConfig = useConfigStore()
   const apiPriceCurrency = usePriceCurrency()
 

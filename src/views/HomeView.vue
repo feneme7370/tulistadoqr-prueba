@@ -24,16 +24,16 @@
 
     <!-- seleccionar menu -->
 
-    <div class="flex justify-center items-center">
+    <div class="flex justify-center items-center bg-gray-100">
       <select 
         id="apiProducts.menuSelected" 
         v-model="apiProducts.menuSelected"
         placeholder="Formato del menu" 
-        class="bg-orange-50 my-2 mx-5 px-4 py-2 text-center border border-orange-300 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-3/4 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-orange-500 dark:focus:border-orange-500">
+        class=" my-2 mx-5 px-4 py-2 text-center border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-gray-500 focus:border-gray-500 block w-3/4 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-gray-500 dark:focus:border-gray-500">
         <!-- <option selected>Choose a country</option> -->
-        <option value="1">Acordion</option>
-        <option value="2">Listado</option>
-        <option value="3">Secciones</option>
+        <option class="text-sm mx-auto italic" value="1">Acordion</option>
+        <option class="text-sm mx-auto italic" value="2">Listado</option>
+        <option class="text-sm mx-auto italic" value="3">Secciones</option>
       </select>
     </div>
 

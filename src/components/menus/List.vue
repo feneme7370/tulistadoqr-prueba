@@ -15,7 +15,6 @@ const apiConfig = useConfigStore()
 </script>
 
 <template>
-  <!-- listado de productos -->
   <div>
 
     <div v-for="level in levelsDates" :key="level.id" class="mb-8">
