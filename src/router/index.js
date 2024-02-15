@@ -9,11 +9,11 @@ const router = createRouter({
       name: 'home',
       component: HomeView
     },
-    {
-      path: '/categorias/:levelId',
-      name: 'categories',
-      component: () => import('../views/CategoryView.vue')
-    }
+    // {
+    //   path: '/categorias/:levelId',
+    //   name: 'categories',
+    //   component: () => import('../views/CategoryView.vue')
+    // }
   ]
 })
 
