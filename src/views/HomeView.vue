@@ -5,7 +5,7 @@
 
   import Accordion from '../components/menus/Accordion.vue'
   import List from '../components/menus/List.vue'
-  // import Table from '../components/menus/Table.vue'
+  import Table from '../components/menus/Table.vue'
   import MenuRouter from '../components/menus/MenuRouter.vue'
 
   import CardProductSuggestion from '../components/cards/CardProductSuggestion.vue';
