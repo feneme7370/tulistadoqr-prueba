@@ -1,8 +1,7 @@
 <script setup>
-import TableProduct from '../../components/cards/TableProduct.vue'
 import {  usePriceCurrency } from '../../composables/usePriceCurrency.js'
-  import ImgTumbLightbox from '/src/components/sistem/ImgTumbLightbox.vue'
-  const apiPriceCurrency = usePriceCurrency()
+import ImgTumbLightbox from '/src/components/sistem/ImgTumbLightbox.vue'
+const apiPriceCurrency = usePriceCurrency()
 import { useConfigStore } from '../../stores/config';
 
 const props = defineProps({

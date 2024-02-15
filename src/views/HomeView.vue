@@ -1,10 +1,13 @@
 <script setup>
   import ImageHero from '../components/layouts/ImageHero.vue';
+
   import Footer from '../components/layouts/Footer.vue'
+  
   import Accordion from '../components/menus/Accordion.vue'
   import List from '../components/menus/List.vue'
   import Table from '../components/menus/Table.vue'
   import MenuRouter from '../components/menus/MenuRouter.vue'
+
   import CardProductSuggestion from '../components/cards/CardProductSuggestion.vue';
 
   // importar api de datos
