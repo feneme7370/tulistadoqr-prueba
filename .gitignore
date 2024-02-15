@@ -28,7 +28,3 @@ coverage
 *.sw?
 
 *.tsbuildinfo
-src/lib/axios.js
-src/stores/config.js
-src/lib/axios.js
-src/stores/config.js

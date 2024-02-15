@@ -1,5 +1,4 @@
 <script setup>
-  import { ref, computed } from 'vue';
   import ImageHero from '../components/layouts/ImageHero.vue';
   import Footer from '../components/layouts/Footer.vue'
   import Accordion from '../components/menus/Accordion.vue'
