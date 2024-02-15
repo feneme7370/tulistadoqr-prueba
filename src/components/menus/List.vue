@@ -1,6 +1,6 @@
 <script setup>
-import { ref } from 'vue'
 import CardProduct from '../../components/cards/CardProduct.vue'
+import ImgTumbLightbox from '/src/components/sistem/ImgTumbLightbox.vue'
 import { useConfigStore } from '../../stores/config';
 
 const props = defineProps({
@@ -18,35 +18,44 @@ const apiConfig = useConfigStore()
   <div>
 
     <div v-for="level in levelsDates" :key="level.id" class="mb-8">
-      <h2 class="text-center font-bold text-3xl italic mb-5">{{ level.name }}</h2>
-  
-      <div v-for="category in categoriesDates" :key="category.id">
-        <div v-if="category.level_id == level.id">
-  
-          <div class="flex justify-between items-center gap-3 sm:px-3 bg-orange-200 h-20">
-            <img 
-                loading="lazy"
-                class="h-16 w-16 object-cover rounded-r-lg"
-                :src="apiConfig.urlBack+category.image_hero_uri+ category.image_hero" 
-                alt="imagen portada"
-            >
-            <h3 class="text-center text-xl mb-2">{{ category.name }}</h3>
-            <div></div>
-          </div>
+      <div v-if="categoriesDates.some(category => category.level_id === level.id)">
+
+        <h2 class="text-center font-bold text-3xl italic mb-5">{{ level.name }}</h2>
+    
+        <div v-for="category in categoriesDates" :key="category.id">
+          <div v-if="productsDates.some(product => product.category_id === category.id)">
+
+            <div v-if="category.level_id == level.id">
       
-          <div v-for="product in productsDates" :key="product.id">
-            <div v-if="product.category_id == category.id">
-              
-              <CardProduct 
-                :product="product"
-              />
-  
-            </div>
-          </div>
+              <div class="flex justify-start items-center gap-3 sm:px-3 bg-orange-200 h-20 lg:rounded-md">
+                <ImgTumbLightbox 
+                        class="w-12 h-12"
+                        :uri="apiConfig.urlBack+category.image_hero_uri"
+                        :name="category.image_hero"
+                        :nameImg="category.name"
+                    />
+                <h3 class="font-semibold text-xl mb-2">{{ category.name }}</h3>
+                <div></div>
+              </div>
           
+              <div v-for="product in productsDates" :key="product.id">
+                <div v-if="product.category_id == category.id">
+                  
+                  <CardProduct 
+                    :product="product"
+                  />
+      
+                </div>
+              </div>
+              
+            </div>
+
+          </div>
         </div>
       </div>
+
     </div>
+
   </div>
 </template>
 

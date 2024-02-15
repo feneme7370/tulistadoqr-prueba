@@ -12,11 +12,24 @@
 
 <template>
    
-    <div class="my-2 px-2">
 
-        <hr class="border-orange-300">
-
-        <div class="flex justify-center gap-1 my-2  text-gray-700 dark:text-gray-400 min-h-28">
+            <tr>
+                <td class="w-1/4">
+                    <ImgTumbLightbox 
+                        
+                        :uri="apiConfig.urlBack+product.image_hero_uri"
+                        :name="product.image_hero"
+                        :nameImg="product.category + ' - ' + product.name"
+                        nameAlbum="productos"
+                    />
+                </td>
+                <td>
+                    <p>{{ product.name }}</p>
+                    <p>{{ product.description }}</p>
+                </td>
+                <td>{{ apiPriceCurrency.formatterCurrency.format(product.price_original) }}</td>
+            </tr>
+        <!-- <div class="flex justify-center gap-1 my-2  text-gray-700 dark:text-gray-400 min-h-28">
 
 
             <div class="w-8/12 py-1 px-2 flex flex-col justify-between">
@@ -43,8 +56,7 @@
                 nameAlbum="productos"
             />
 
-        </div>
-    </div>
+        </div> -->
 
 
 </template>

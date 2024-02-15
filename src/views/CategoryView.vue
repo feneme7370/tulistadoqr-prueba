@@ -19,7 +19,7 @@
 
 
     // capturar id de la ruta
-    const {levelId} = route.params
+    const levelId = route.params.levelId
     const categoryId = ref('')
 
  
@@ -31,9 +31,9 @@
     console.log(categoryId);
     // console.log(apiProducts.categoriesDates[0].id);
 
-    if(!levelId){
-      router.push({ name : home })
-    }
+    // if(!levelId){
+    //   router.push({ name : home })
+    // }
     if(!apiProducts){
       router.push({ name : home })
     }
@@ -45,7 +45,7 @@
     <div>
 
       <ImageHero 
-      class="mb-10" 
+      class="mb-10 max-w-lg mx-auto lg:rounded-md" 
       :companiesDates="apiProducts.companiesDates"
       />
       <router-link :to="{name: 'home'}">
@@ -63,26 +63,29 @@
       </div>
   
       <!-- mini cards -->
-      <div class="flex flex-wrap items-center justify-center gap-3">
+      <div class="flex flex-wrap items-center justify-center gap-3 ">
   
         <div v-for="category in apiProducts.categoriesDates" :key="category.id">
-              <div 
-                v-if="category.level_id == levelId" 
-                class="mb-10 bg-center bg-no-repeat w-16 h-16 cursor-pointer relative"
-                v-on:click.native="categoryId = category.id"
-              >
-                  <img 
-                      loading="lazy"
-                      class="w-16 h-16 object-cover rounded-xl"
-                      :src="apiConfig.urlBack+category.image_hero_uri+category.image_hero" 
-                      alt="imagen portada"
-                  >
-                  <div class="absolute right-0 -bottom-5 left-0 px-1 mx-auto text-center flex items-center justify-center flex-col">
-                      <a class="bg-orange-100 w-full border-2 border-orange-200 py-1 text-xs tracking-tight leading-none text-gray-800 md:text-md lg:text-lg">
-                        {{ category.name }}
-                      </a>
-                  </div>
-              </div>
+          <div v-if="apiProducts.productsDates.some(product => product.category_id === category.id)">
+
+            <div 
+              v-if="category.level_id == levelId" 
+              class="mb-10 bg-center bg-no-repeat w-16 h-16 sm:w-32 sm:h-32 cursor-pointer relative "
+              v-on:click.native="categoryId = category.id"
+            >
+                <img 
+                    loading="lazy"
+                    class="w-16 h-16 sm:w-32 sm:h-32 object-cover rounded-xl"
+                    :src="apiConfig.urlBack+category.image_hero_uri+category.image_hero" 
+                    alt="imagen portada"
+                >
+                <div class="absolute right-0 -bottom-5 left-0 px-1 mx-auto text-center flex items-center justify-center flex-col">
+                    <a class="bg-orange-100 w-full border-2 border-orange-200 py-1 text-xs tracking-tight leading-none text-gray-800 lg:text-lg">
+                      {{ category.name }}
+                    </a>
+                </div>
+            </div>
+          </div>
           </div>
   
       </div>
@@ -94,18 +97,19 @@
   
       <div v-for="product in apiProducts.productsDates" :key="product.id">
   
-      <div v-if="product.category_id === categoryId">
-  
-        <CardProduct 
-          :product="product"
-        />
-  
+          <div v-if="product.category_id === categoryId">
+      
+            <CardProduct 
+              class=" max-w-lg mx-auto lg:rounded-md"
+              :product="product"
+            />
+      
+          </div>
       </div>
-  </div>
   
   
       <!-- sugeridos -->
-      <div class="mb-10">
+      <div class="mb-10 max-w-lg mx-auto lg:rounded-md">
         <div v-if="apiProducts.suggestionsDates[0]">
           <h2 class="text-center font-bold text-4xl mb-5">Sugeridos</h2>
         
@@ -120,6 +124,7 @@
   
     <!-- footer -->
     <Footer
+      class="max-w-5xl mx-auto lg:rounded-md"
       :companiesDates="apiProducts.companiesDates"
     />
   </div>

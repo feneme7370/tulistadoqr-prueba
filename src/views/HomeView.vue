@@ -4,6 +4,7 @@
   import Footer from '../components/layouts/Footer.vue'
   import Accordion from '../components/menus/Accordion.vue'
   import List from '../components/menus/List.vue'
+  import Table from '../components/menus/Table.vue'
   import MenuRouter from '../components/menus/MenuRouter.vue'
   import CardProductSuggestion from '../components/cards/CardProductSuggestion.vue';
 
@@ -15,6 +16,8 @@
 
 <template>
   <div class="bg-orange-50">
+    <div class=" max-w-5xl mx-auto">
+
 
     <!-- portada -->
     <ImageHero 
@@ -24,7 +27,7 @@
 
     <!-- seleccionar menu -->
 
-    <div class="flex justify-center items-center bg-gray-100">
+    <div class="flex justify-center items-center  max-w-lg mx-auto lg:rounded-md">
       <select 
         id="apiProducts.menuSelected" 
         v-model="apiProducts.menuSelected"
@@ -34,6 +37,7 @@
         <option class="text-sm mx-auto italic" value="1">Acordion</option>
         <option class="text-sm mx-auto italic" value="2">Listado</option>
         <option class="text-sm mx-auto italic" value="3">Secciones</option>
+        <option class="text-sm mx-auto italic" value="4">Tabla</option>
       </select>
     </div>
 
@@ -41,7 +45,7 @@
     <!-- accordion -->
     <div v-if="apiProducts.menuSelected == '1'">
       <Accordion
-        class="mb-10"
+        class="mb-10 max-w-lg mx-auto lg:rounded-md"
         :productsDates="apiProducts.productsDates"
         :levelsDates="apiProducts.levelsDates"
         :categoriesDates="apiProducts.categoriesDates"
@@ -51,7 +55,7 @@
     <!-- list -->
     <div v-if="apiProducts.menuSelected == '2'">
       <List
-        class="mb-10"
+        class="mb-10 max-w-lg mx-auto lg:rounded-md"
         :productsDates="apiProducts.productsDates"
         :levelsDates="apiProducts.levelsDates"
         :categoriesDates="apiProducts.categoriesDates"
@@ -61,7 +65,17 @@
     <!-- Con Router -->
     <div v-if="apiProducts.menuSelected == '3'">
       <MenuRouter
-        class="mb-10"
+        class="mb-10 max-w-lg mx-auto lg:rounded-md"
+        :productsDates="apiProducts.productsDates"
+        :levelsDates="apiProducts.levelsDates"
+        :categoriesDates="apiProducts.categoriesDates"
+      />
+    </div>
+  
+    <!-- Con Tabla -->
+    <div v-if="apiProducts.menuSelected == '4'">
+      <Table
+        class="mb-10 max-w-lg mx-auto lg:rounded-md"
         :productsDates="apiProducts.productsDates"
         :levelsDates="apiProducts.levelsDates"
         :categoriesDates="apiProducts.categoriesDates"
@@ -69,7 +83,7 @@
     </div>
   
     <!-- sugeridos -->
-    <div class="mb-10">
+    <div class="mb-10 max-w-lg mx-auto lg:rounded-md">
       <div v-if="apiProducts.suggestionsDates[0]">
         <h2 class="text-center font-bold text-4xl mb-5">Sugeridos</h2>
       
@@ -84,9 +98,12 @@
   
     <!-- footer -->
     <Footer
+      class="max-w-5xl mx-auto lg:rounded-md"
       :companiesDates="apiProducts.companiesDates"
     />
+
   </div>
+</div>
 </template>
 
 <style scoped>

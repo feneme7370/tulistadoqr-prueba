@@ -1,18 +1,13 @@
 <script setup>
   import { useConfigStore } from '../../stores/config';
   import { usePriceCurrency } from '../../composables/usePriceCurrency.js'
+  import ImgTumbLightbox from '/src/components/sistem/ImgTumbLightbox.vue'
   const apiConfig = useConfigStore()
   const apiPriceCurrency = usePriceCurrency()
 
     const props = defineProps({
         product: {type: Object, required: true},
     })
-
-    // const formatterCurrency = new Intl.NumberFormat("es-AR", {
-    // style: "currency",
-    // currency: "ARS",
-    // minimumFractionDigits: 2,
-    // });
 
 </script>
 
@@ -24,12 +19,13 @@
 
         <div class="flex justify-center gap-1 my-2 bg-orange-100 text-gray-700 dark:text-gray-400 min-h-28">
 
-            <img 
-                loading="lazy"
-                class="w-4/12 object-cover object-center max-w-28"
-                :src="apiConfig.urlBack+product.image_hero_uri+ product.image_hero" 
-                alt="imagen portada"
-            >
+            <ImgTumbLightbox 
+                class="w-4/12"
+                :uri="apiConfig.urlBack+product.image_hero_uri"
+                :name="product.image_hero"
+                :nameImg="product.name"
+                nameAlbum="suggestion"
+            />
 
             <div class="w-8/12 py-1 px-2 flex flex-col justify-between">
                 <div>
