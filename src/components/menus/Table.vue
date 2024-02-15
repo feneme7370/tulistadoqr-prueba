@@ -1,9 +1,9 @@
 <script setup>
 import {  usePriceCurrency } from '../../composables/usePriceCurrency.js'
 import ImgTumbLightbox from '/src/components/sistem/ImgTumbLightbox.vue'
-const apiPriceCurrency = usePriceCurrency()
 import { useConfigStore } from '../../stores/config';
 
+const apiPriceCurrency = usePriceCurrency()
 const props = defineProps({
     productsDates: { type: Object, required: true },
     levelsDates: { type: Object, required: true },

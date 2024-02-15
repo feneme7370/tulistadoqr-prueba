@@ -75,14 +75,14 @@
     </div>
   
     <!-- Con Tabla -->
-    <!-- <div v-if="apiProducts.menuSelected == '4'">
+    <div v-if="apiProducts.menuSelected == '4'">
       <Table
         class="mb-10 max-w-lg mx-auto lg:rounded-md"
         :productsDates="apiProducts.productsDates"
         :levelsDates="apiProducts.levelsDates"
         :categoriesDates="apiProducts.categoriesDates"
       />
-    </div> -->
+    </div>
   
     <!-- sugeridos -->
     <div class="mb-10 max-w-lg mx-auto lg:rounded-md">
