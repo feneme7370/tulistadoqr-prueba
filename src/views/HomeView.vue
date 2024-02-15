@@ -2,10 +2,10 @@
   import ImageHero from '../components/layouts/ImageHero.vue';
 
   import Footer from '../components/layouts/Footer.vue'
-  
+
   import Accordion from '../components/menus/Accordion.vue'
   import List from '../components/menus/List.vue'
-  import Table from '../components/menus/Table.vue'
+  // import Table from '../components/menus/Table.vue'
   import MenuRouter from '../components/menus/MenuRouter.vue'
 
   import CardProductSuggestion from '../components/cards/CardProductSuggestion.vue';
@@ -75,14 +75,14 @@
     </div>
   
     <!-- Con Tabla -->
-    <div v-if="apiProducts.menuSelected == '4'">
+    <!-- <div v-if="apiProducts.menuSelected == '4'">
       <Table
         class="mb-10 max-w-lg mx-auto lg:rounded-md"
         :productsDates="apiProducts.productsDates"
         :levelsDates="apiProducts.levelsDates"
         :categoriesDates="apiProducts.categoriesDates"
       />
-    </div>
+    </div> -->
   
     <!-- sugeridos -->
     <div class="mb-10 max-w-lg mx-auto lg:rounded-md">
