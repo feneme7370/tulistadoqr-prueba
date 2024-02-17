@@ -28,7 +28,7 @@ const levelIdSelected = (id) => {
     <h2 class="text-center font-bold text-2xl mb-5">Categorias Generales</h2>
 
     <!-- listado de niveles -->
-    <div class="flex flex-wrap justify-center items-center py-10 bg-orange-200 gap-2">
+    <div class="flex flex-wrap justify-center items-center py-10 bg-primary-200 gap-2">
       <div v-for="level in levelsDates" :key="level.id" >
         
         <div v-if="categoriesDates.some(category => category.level_id === level.id)" >
@@ -44,7 +44,7 @@ const levelIdSelected = (id) => {
                 
     
                 <div class="absolute right-0 -bottom-5 left-0 px-5 mx-auto max-w-screen-xl text-center flex items-center justify-center flex-col cursor-pointer">
-                  <a class="bg-orange-100 rounded-lg block w-full border-2 border-orange-200">
+                  <a class="bg-primary-100 rounded-lg block w-full border-2 border-primary-200">
                     <h1 class="my-2 text-base sm:text-xl font-extrabold text-gray-800 ">{{ level.name }}</h1>
                   </a>
                 </div>
@@ -80,7 +80,7 @@ const levelIdSelected = (id) => {
                 >
 
                 <div class="absolute right-0 -bottom-5 left-0 mx-auto text-center flex items-center justify-center flex-col">
-                    <a class="bg-orange-100 rounded-lg w-full border-2 border-orange-200 mx-2 py-1 text-sm  leading-none text-gray-800 lg:text-lg">
+                    <a class="bg-primary-100 rounded-lg w-full border-2 border-primary-200 mx-2 py-1 text-sm  leading-none text-gray-800 lg:text-lg">
                       {{ category.name }}
                     </a>
                 </div>

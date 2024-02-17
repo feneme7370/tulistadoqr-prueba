@@ -28,7 +28,7 @@ const apiConfig = useConfigStore()
 
             <div v-if="category.level_id == level.id">
       
-              <div class="flex justify-start items-center mt-4 gap-3 sm:px-3 bg-orange-200 h-20 lg:rounded-md">
+              <div class="flex justify-start items-center mt-4 gap-3 sm:px-3 bg-primary-200 h-20 lg:rounded-md">
                 <ImgTumbLightbox 
                         class="w-12 h-12"
                         :uri="apiConfig.urlBack+category.image_hero_uri"
@@ -49,8 +49,7 @@ const apiConfig = useConfigStore()
                           </tr>
                       </thead> -->
                       <tbody class="">
-
-                        <tr v-for="product in productsDates" :key="product.id" class="border-t border-orange-200">
+                        <tr v-for="product in productsDates" :key="product.id" class="border-t border-primary-200">
                           <td class="w-1/4" v-if="product.category_id == category.id">
                               <ImgTumbLightbox 
                                   

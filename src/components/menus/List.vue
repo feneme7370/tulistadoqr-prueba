@@ -27,7 +27,7 @@ const apiConfig = useConfigStore()
 
             <div v-if="category.level_id == level.id">
       
-              <div class="flex justify-start items-center gap-3 sm:px-3 bg-orange-200 h-20 lg:rounded-md">
+              <div class="flex justify-start items-center gap-3 sm:px-3 bg-primary-200 h-20 lg:rounded-md">
                 <ImgTumbLightbox 
                         class="w-12 h-12"
                         :uri="apiConfig.urlBack+category.image_hero_uri"

@@ -32,7 +32,7 @@ const toggleAccordion = (index) => {
         <!-- evaluar si tiene categorias, sino no se muestra -->
         <div v-if="categoriesDates.some(category => category.level_id === level.id)">
 
-          <hr class="mx-10 mb-5 border-orange-300">
+          <hr class="mx-10 mb-5 border-primary-300">
           
           <div class="flex justify-center items-center gap-3 px-3">
             <h2 class="text-center font-bold text-4xl mb-2">{{ level.name }}</h2>
@@ -47,7 +47,7 @@ const toggleAccordion = (index) => {
               
                 <!-- datos de las categorias -->
       
-                <h2 :id="'accordion-collapse-heading-' + (index + 1)" class="bg-orange-200 h-20 mb-1 lg:rounded-md transition-all ease-in-out">
+                <h2 :id="'accordion-collapse-heading-' + (index + 1)" class="bg-primary-200 h-20 mb-1 lg:rounded-md transition-all ease-in-out">
                   <button
                     type="button"
                     class="accordion-button py-3 mb-2 w-full flex justify-between items-center"

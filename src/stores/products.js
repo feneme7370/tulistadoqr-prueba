@@ -10,6 +10,7 @@ export const useProductsStore = defineStore('apiProducts', () => {
     const levelsDates = ref({})
     const companiesDates = ref({})
     const tagsDates = ref({})
+    const offersDates = ref({})
 
     const menuSelected = ref('')
 
@@ -22,6 +23,7 @@ export const useProductsStore = defineStore('apiProducts', () => {
         categoriesDates.value = await dataProducts.data['responseCategories']
         companiesDates.value = await dataProducts.data['responseCompany'][0]
         tagsDates.value = await dataProducts.data['responseTag']
+        offersDates.value = await dataProducts.data['responseOffers']
 
         menuSelected.value = await dataProducts.data['responseCompany'][0].type_menu
     }
@@ -36,6 +38,7 @@ export const useProductsStore = defineStore('apiProducts', () => {
         companiesDates,
         suggestionsDates,
         tagsDates,
+        offersDates,
         menuSelected,
 
         loadDates

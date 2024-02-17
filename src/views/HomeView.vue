@@ -17,9 +17,8 @@
 </script>
 
 <template>
-  <div class="bg-orange-50">
+  <div class="bg-primary-50">
     <div class=" max-w-5xl mx-auto">
-
 
     <!-- portada -->
     <ImageHero 
@@ -82,6 +81,21 @@
         :levelsDates="apiProducts.levelsDates"
         :categoriesDates="apiProducts.categoriesDates"
       />
+    </div>
+
+
+    <!-- ofertas -->
+    <div class="mb-10 max-w-lg mx-auto lg:rounded-md bg-primary-300 pb-2 pt-5">
+      <div v-if="apiProducts.offersDates[0]">
+        <h2 class="text-center font-bold text-4xl mb-5">Ofertas</h2>
+      
+        <div v-for="offers in apiProducts.offersDates" :key="offers.id" class="my-2 px-2">
+
+          <CardProductSuggestion 
+            :product="offers"
+          />
+        </div>
+      </div>
     </div>
   
     <!-- sugeridos -->

@@ -60,11 +60,11 @@
           </div>
           <div>
             <h2 class="mb-4 text-center text-lg font-semibold text-gray-900 uppercase dark:text-white">Redes Sociales</h2>
-                <div class="flex flex-wrap justify-center items-center gap-8 mt-4 sm:mt-0">
+                <div class="flex flex-wrap justify-center items-center mt-4 sm:mt-0">
                     <div v-for="social in companiesDates.socialMedia">
-                        <a :href="'https://'+social.pivot.url" target="_blank" class="text-gray-500 hover:text-gray-900 dark:hover:text-white">
-                            <SocialIcons :icon="social.slug" />
-                            <span class="sr-only">{{social.slug}}</span>
+                        <a v-if="social.pivot.url != ''" :href="'https://'+social.pivot.url" target="_blank" class="m-1 text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                            <SocialIcons :icon="social.slug" class="dark:bg-gray-200 dark:p-2 dark:rounded-3xl"/>
+                            <span class="sr-only ">{{social.slug}}</span>
                         </a>
                     </div>
                 </div>
