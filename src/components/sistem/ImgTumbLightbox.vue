@@ -27,7 +27,7 @@
     >
         <img 
             loading="lazy"
-            class="w-full h-full object-cover object-center max-w-28"
+            class="w-full h-full object-cover object-center"
             :src="uri + 'tumb_' + name" 
             alt="imagen portada"
         >

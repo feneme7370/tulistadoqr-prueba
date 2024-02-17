@@ -8,6 +8,7 @@
   import Table from '../components/menus/Table.vue'
   import MenuRouter from '../components/menus/MenuRouter.vue'
 
+  import SwiperSlider from '@/components/sistem/SwiperSlider.vue'
   import CardProductSuggestion from '../components/cards/CardProductSuggestion.vue';
 
   // importar api de datos
@@ -85,7 +86,7 @@
 
 
     <!-- ofertas -->
-    <div class="mb-10 max-w-lg mx-auto lg:rounded-md bg-primary-300 pb-2 pt-5">
+    <!-- <div class="mb-10 max-w-lg mx-auto lg:rounded-md bg-primary-300 pb-2 pt-5">
       <div v-if="apiProducts.offersDates[0]">
         <h2 class="text-center font-bold text-4xl mb-5">Ofertas</h2>
       
@@ -95,6 +96,19 @@
             :product="offers"
           />
         </div>
+      </div>
+    </div> -->
+
+    <!-- ofertas -->
+    <div class="mb-10 max-w-lg mx-auto lg:rounded-md bg-primary-100 pb-2 pt-5">
+      <div v-if="apiProducts.offersDates[0]">
+        <h2 class="text-center font-bold text-4xl mb-2">Ofertas</h2>
+      
+
+          <SwiperSlider 
+          :offersDates="apiProducts.offersDates"
+          />
+
       </div>
     </div>
   
