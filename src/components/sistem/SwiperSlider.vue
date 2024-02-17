@@ -17,6 +17,7 @@
   import 'swiper/css/pagination';
   import 'swiper/css/scrollbar';
 
+
 const modules = [Navigation, Pagination, Scrollbar, A11y];
 
 </script>
@@ -25,6 +26,7 @@ const modules = [Navigation, Pagination, Scrollbar, A11y];
     <div>
         <swiper
         :modules="modules"
+        :effect="'cards'"
           :slides-per-view="1.8"
           :space-between="5"
           navigation

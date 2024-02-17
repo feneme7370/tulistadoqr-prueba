@@ -12,7 +12,7 @@
 
 <template>
    
-    <div class="my-2 px-2">
+    <div class="my-2 px-2 bg-primary-200">
 
         <hr class="border-primary-300">
 

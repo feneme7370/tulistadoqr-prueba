@@ -1,18 +1,19 @@
 <script setup>
-  import ImageHero from '../components/layouts/ImageHero.vue';
+  import ImageHero from '@/components/layouts/ImageHero.vue';
+  import ImageDescription from '@/components/layouts/ImageDescription.vue';
 
-  import Footer from '../components/layouts/Footer.vue'
+  import Footer from '@/components/layouts/Footer.vue'
 
-  import Accordion from '../components/menus/Accordion.vue'
-  import List from '../components/menus/List.vue'
-  import Table from '../components/menus/Table.vue'
-  import MenuRouter from '../components/menus/MenuRouter.vue'
+  import Accordion from '@/components/menus/Accordion.vue'
+  import List from '@/components/menus/List.vue'
+  import Table from '@/components/menus/Table.vue'
+  import MenuRouter from '@/components/menus/MenuRouter.vue'
 
   import SwiperSlider from '@/components/sistem/SwiperSlider.vue'
-  import CardProductSuggestion from '../components/cards/CardProductSuggestion.vue';
+  import CardProductSuggestion from '@/components/cards/CardProductSuggestion.vue';
 
   // importar api de datos
-  import { useProductsStore } from '../stores/products'
+  import { useProductsStore } from '@/stores/products'
   const apiProducts = useProductsStore()
 
 </script>
@@ -84,6 +85,12 @@
       />
     </div>
 
+
+    <!-- imagen con descripcion -->
+    <ImageDescription 
+      class="mb-10" 
+      :companiesDates="apiProducts.companiesDates"
+    />
 
     <!-- ofertas -->
     <!-- <div class="mb-10 max-w-lg mx-auto lg:rounded-md bg-primary-300 pb-2 pt-5">
