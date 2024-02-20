@@ -1,5 +1,5 @@
 <script setup>
-     import CardProductOffer from '../cards/CardProductOffer.vue';
+     import CardProductOffer from '@/components/cards/CardProductOffer.vue';
 
     const props = defineProps({
         offersDates: {type: Object, required: true},

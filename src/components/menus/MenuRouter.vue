@@ -1,8 +1,7 @@
 <script setup>
 import { ref } from 'vue';
-import { RouterLink } from 'vue-router';
-import CardProduct from '/src/components/cards/CardProduct.vue';
-import { useConfigStore } from '../../stores/config';
+import CardProduct from '@/components/cards/CardProduct.vue';
+import { useConfigStore } from '@/stores/config';
 const apiConfig = useConfigStore()
 
 const props = defineProps({

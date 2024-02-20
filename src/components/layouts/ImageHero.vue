@@ -1,7 +1,7 @@
 <script setup>
 
     // importar configuraciones
-    import { useConfigStore } from '../../stores/config';
+    import { useConfigStore } from '@/stores/config';
     const apiConfig = useConfigStore()
 
     // recibir datos

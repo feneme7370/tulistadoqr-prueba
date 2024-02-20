@@ -1,8 +1,8 @@
 <script setup>
 import { ref } from 'vue'
-import CardProduct from '../../components/cards/CardProduct.vue'
-import ImgTumbLightbox from '/src/components/sistem/ImgTumbLightbox.vue'
-import { useConfigStore } from '../../stores/config';
+import CardProduct from '@/components/cards/CardProduct.vue'
+import ImgTumbLightbox from '@/components/sistem/ImgTumbLightbox.vue'
+import { useConfigStore } from '@/stores/config';
 
 const props = defineProps({
     productsDates: { type: Object, required: true },

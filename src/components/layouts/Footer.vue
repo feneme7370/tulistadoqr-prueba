@@ -1,5 +1,4 @@
 <script setup>
-    import { computed, ref } from 'vue';
     import SocialIcons from '@/components/layouts/SocialIcons.vue'
     import { useConfigStore } from '@/stores/config';
     const apiConfig = useConfigStore()

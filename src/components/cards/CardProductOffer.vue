@@ -1,7 +1,7 @@
 <script setup>
-  import { useConfigStore } from '../../stores/config';
-  import {  usePriceCurrency } from '../../composables/usePriceCurrency.js'
-  import ImgTumbLightbox from '/src/components/sistem/ImgTumbLightbox.vue'
+  import { useConfigStore } from '@/stores/config';
+  import {  usePriceCurrency } from '@/composables/usePriceCurrency.js'
+  import ImgTumbLightbox from '@/components/sistem/ImgTumbLightbox.vue'
   const apiPriceCurrency = usePriceCurrency()
   const apiConfig = useConfigStore()
 
