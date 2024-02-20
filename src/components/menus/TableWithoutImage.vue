@@ -29,18 +29,13 @@ const apiConfig = useConfigStore()
             <div v-if="category.level_id == level.id">
       
               <div class="flex justify-start items-center mt-4 gap-3 sm:px-3 bg-primary-200 h-20 lg:rounded-md">
-                <ImgTumbLightbox 
-                        class="w-12 h-12"
-                        :uri="apiConfig.urlBack+category.image_hero_uri"
-                        :name="category.image_hero"
-                        :nameImg="category.name"
-                    />
-                <h3 class="font-semibold text-xl mb-2">{{ category.name }}</h3>
+                <h3 class="font-semibold text-xl ml-4 mb-2">{{ category.name }}</h3>
+                <div></div>
                 <div></div>
               </div>
    
               
-              <table class="text-xs mt-1">
+              <table class="text-xs mt-1 w-full">
                       <!-- <thead>
                           <tr>
                             <th>Imagen</th>
@@ -50,15 +45,15 @@ const apiConfig = useConfigStore()
                       </thead> -->
                       <tbody class="">
                         <tr v-for="product in productsDates" :key="product.id" class="border-t border-primary-200">
-                          <td v-if="product.category_id == category.id">
-                            <div class="h-20 flex flex-col justify-between">
-                              <p class="font-bold italic">{{ product.name }}</p>
+                          <td v-if="product.category_id == category.id" class="p-3">
+                            <div class="h-20 flex flex-col justify-start">
+                              <p class="text-lg font-bold italic">{{ product.name }}</p>
                               <p>{{ product.description }}</p>
                             </div>
                           </td>
-                          <td v-if="product.category_id == category.id">
-                            <div class="h-20 flex flex-col justify-between">
-                              <p class="font-bold">{{ apiPriceCurrency.formatterCurrency.format(product.price_original) }}</p>
+                          <td v-if="product.category_id == category.id" class="p-3">
+                            <div class="h-20 flex flex-col justify-between items-end">
+                              <p class="text-base font-bold">{{ product.price_seller > 0 ? apiPriceCurrency.formatterCurrency.format(product.price_seller) : apiPriceCurrency.formatterCurrency.format(product.price_original) }}</p>
                               <div></div>
                             </div>
                           </td>

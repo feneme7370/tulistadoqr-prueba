@@ -66,7 +66,7 @@
                 <!-- <div v-if="companiesDates.socialMedia.some(item => item.pivot.url === '')"> -->
 
                     <!-- <div v-for="social in companiesDates.socialMedia"> -->
-                        <div v-for="social in companiesDates.socialMedia" :key="social.id">
+                        <div v-for="social in companiesDates.socialMedia" :key="social.id" class="flex justify-center flex-wrap">
                             <a v-if="social.pivot.url != ''" :href="'https://'+social.pivot.url" target="_blank" class="mx-10 text-gray-500 hover:text-gray-900 dark:hover:text-white">
                                 <SocialIcons :icon="social.slug" class="dark:bg-gray-200 dark:p-2 dark:rounded-3xl"/>
                                 <!-- <span class="sr-only ">{{social.slug}}</span> -->
