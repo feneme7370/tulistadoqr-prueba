@@ -39,7 +39,7 @@
 
                 <div class="my-1 flex items-center gap-1 overflow-x-auto overflow-hidden">
 
-                <span v-for="tag in product.tags" class="block whitespace-nowrap  bg-primary-200 text-primary-900 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-primary-900 dark:text-primary-300">{{ tag.name }}</span>
+                <span v-for="tag in product.tags" class="block whitespace-nowrap  bg-primary-200 text-primary-900 text-xs font-medium  my-2 me-2 px-2.5 py-0.5 rounded dark:bg-primary-900 dark:text-primary-300">{{ tag.name }}</span>
 
                 </div>
 
