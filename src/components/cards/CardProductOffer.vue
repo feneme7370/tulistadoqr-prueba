@@ -12,17 +12,18 @@
 
 <template>
    
-    <div class="my-2 px-2 bg-primary-200">
+    <div class="my-2 px-2 py-1 bg-primary-200">
 
         <hr class="border-primary-300">
 
         <div class="flex flex-col items-start justify-between gap-1 my-2  text-gray-700 w-full min-h-36">
             <ImgTumbLightbox 
-                class="w-full"
+                class="w-full h-48"
                 :uri="apiConfig.urlBack+product.image_hero_uri"
                 :name="product.image_hero"
                 :nameImg="product.category + ' - ' + product.name"
                 nameAlbum="productos"
+                tumb=true
             />
 
 

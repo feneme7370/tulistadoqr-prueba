@@ -1,9 +1,11 @@
 <script setup>
+    import { ref } from 'vue';
     const props = defineProps({
         uri: {type: String, required: true},
         name: {type: String, required: true},
         nameAlbum: {type: String},
         nameImg: {type: String},
+        tumb: {type: String},
     })
 
     lightbox.option({
@@ -28,7 +30,7 @@
         <img 
             loading="lazy"
             class="w-full h-full object-cover object-center"
-            :src="uri + 'tumb_' + name" 
+            :src="tumb ? uri + name : uri + 'tumb_' + name" 
             alt="imagen portada"
         >
     </a>

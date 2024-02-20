@@ -26,7 +26,7 @@
 
         <h1 class="mb-4 text-xl sm:text-2xl font-extrabold tracking-tight leading-none md:text-5xl lg:text-6xl">{{ companiesDates.name }}</h1>
 
-        <p class="mb-8 text-lg font-normal lg:text-lg sm:px-16 leading-none ease-linear">{{ companiesDates.description}}</p>
+        <p class="mb-8 text-lg font-normal lg:text-lg sm:px-16 leading-none ease-linear">{{ companiesDates.short_description}}</p>
 
     </div>
 </section>

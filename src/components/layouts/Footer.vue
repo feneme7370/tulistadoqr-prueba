@@ -1,6 +1,7 @@
 <script setup>
-    import SocialIcons from '../../components/layouts/SocialIcons.vue'
-    import { useConfigStore } from '../../stores/config';
+    import { computed, ref } from 'vue';
+    import SocialIcons from '@/components/layouts/SocialIcons.vue'
+    import { useConfigStore } from '@/stores/config';
     const apiConfig = useConfigStore()
 
     const props = defineProps({
@@ -9,6 +10,7 @@
 
     const date = new Date()
     const dateYear = date.getFullYear()
+
 </script>
 
 <template>
@@ -53,7 +55,7 @@
                 <h2 class="mb-2 text-lg font-semibold text-gray-900 uppercase dark:text-white">Nosotros</h2>
                   <ul class="text-gray-500 dark:text-gray-400 font-medium">
                       <li class="mb-2">
-                          <a class="text-sm">{{ companiesDates.description }}</a>
+                          <a class="text-sm">{{ companiesDates.times_description }}</a>
                       </li>
                   </ul>
               </div>
@@ -61,14 +63,19 @@
           <div>
             <h2 class="mb-4 text-center text-lg font-semibold text-gray-900 uppercase dark:text-white">Redes Sociales</h2>
                 <div class="flex flex-wrap justify-center items-center mt-4 sm:mt-0">
-                    <div v-for="social in companiesDates.socialMedia">
-                        <a v-if="social.pivot.url != ''" :href="'https://'+social.pivot.url" target="_blank" class="m-1 text-gray-500 hover:text-gray-900 dark:hover:text-white">
-                            <SocialIcons :icon="social.slug" class="dark:bg-gray-200 dark:p-2 dark:rounded-3xl"/>
-                            <span class="sr-only ">{{social.slug}}</span>
-                        </a>
-                    </div>
-                </div>
+                <!-- <div v-if="companiesDates.socialMedia.some(item => item.pivot.url === '')"> -->
 
+                    <!-- <div v-for="social in companiesDates.socialMedia"> -->
+                        <div v-for="social in companiesDates.socialMedia" :key="social.id">
+                            <a v-if="social.pivot.url != ''" :href="'https://'+social.pivot.url" target="_blank" class="mx-5 text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                                <SocialIcons :icon="social.slug" class="dark:bg-gray-200 dark:p-2 dark:rounded-3xl"/>
+                                <span class="sr-only ">{{social.slug}}</span>
+                            </a>
+                        </div>
+                        
+                <!-- </div> -->
+                    
+            </div>
           </div> 
       </div>
 

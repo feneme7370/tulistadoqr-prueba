@@ -7,6 +7,7 @@
   import Accordion from '@/components/menus/Accordion.vue'
   import List from '@/components/menus/List.vue'
   import Table from '@/components/menus/Table.vue'
+  import TableWithoutImage from '@/components/menus/TableWithoutImage.vue'
   import MenuRouter from '@/components/menus/MenuRouter.vue'
 
   import SwiperSlider from '@/components/sistem/SwiperSlider.vue'
@@ -37,10 +38,11 @@
         placeholder="Formato del menu" 
         class=" my-2 mx-5 px-4 py-2 text-center border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-gray-500 focus:border-gray-500 block w-3/4 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-gray-500 dark:focus:border-gray-500">
         <!-- <option selected>Choose a country</option> -->
-        <option class="text-sm mx-auto italic" value="1">Acordion</option>
+        <option class="text-sm mx-auto italic" value="1">Desplegable</option>
         <option class="text-sm mx-auto italic" value="2">Listado</option>
         <option class="text-sm mx-auto italic" value="3">Secciones</option>
         <option class="text-sm mx-auto italic" value="4">Tabla</option>
+        <option class="text-sm mx-auto italic" value="5">Tabla sin imagen</option>
       </select>
     </div>
 
@@ -78,6 +80,16 @@
     <!-- Con Tabla -->
     <div v-if="apiProducts.menuSelected == '4'">
       <Table
+        class="mb-10 max-w-lg mx-auto lg:rounded-md"
+        :productsDates="apiProducts.productsDates"
+        :levelsDates="apiProducts.levelsDates"
+        :categoriesDates="apiProducts.categoriesDates"
+      />
+    </div>
+  
+    <!-- Con Tabla -->
+    <div v-if="apiProducts.menuSelected == '4'">
+      <TableWithoutImage
         class="mb-10 max-w-lg mx-auto lg:rounded-md"
         :productsDates="apiProducts.productsDates"
         :levelsDates="apiProducts.levelsDates"
