@@ -88,7 +88,7 @@
     </div>
   
     <!-- Con Tabla -->
-    <div v-if="apiProducts.menuSelected == '4'">
+    <div v-if="apiProducts.menuSelected == '5'">
       <TableWithoutImage
         class="mb-10 max-w-lg mx-auto lg:rounded-md"
         :productsDates="apiProducts.productsDates"
