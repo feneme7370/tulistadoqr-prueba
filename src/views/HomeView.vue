@@ -7,7 +7,6 @@
   import Accordion from '@/components/menus/Accordion.vue'
   import List from '@/components/menus/List.vue'
   import Table from '@/components/menus/Table.vue'
-  import TableWithoutImage from '@/components/menus/TableWithoutImage.vue'
   import MenuRouter from '@/components/menus/MenuRouter.vue'
 
   import SwiperSlider from '@/components/sistem/SwiperSlider.vue'
@@ -42,7 +41,6 @@
         <option class="text-sm mx-auto italic" value="2">Listado</option>
         <option class="text-sm mx-auto italic" value="3">Secciones</option>
         <option class="text-sm mx-auto italic" value="4">Tabla</option>
-        <option class="text-sm mx-auto italic" value="5">Tabla sin imagen</option>
       </select>
     </div>
 
@@ -80,16 +78,6 @@
     <!-- Con Tabla -->
     <div v-if="apiProducts.menuSelected == '4'">
       <Table
-        class="mb-10 max-w-lg mx-auto lg:rounded-md"
-        :productsDates="apiProducts.productsDates"
-        :levelsDates="apiProducts.levelsDates"
-        :categoriesDates="apiProducts.categoriesDates"
-      />
-    </div>
-  
-    <!-- Con Tabla -->
-    <div v-if="apiProducts.menuSelected == '5'">
-      <TableWithoutImage
         class="mb-10 max-w-lg mx-auto lg:rounded-md"
         :productsDates="apiProducts.productsDates"
         :levelsDates="apiProducts.levelsDates"

@@ -1,9 +1,8 @@
 <script setup>
-import {  usePriceCurrency } from '../../composables/usePriceCurrency.js'
-import ImgTumbLightbox from '/src/components/sistem/ImgTumbLightbox.vue'
-import { useConfigStore } from '../../stores/config';
+import CardTable from '@/components/cards/CardTable.vue';
+import ImgTumbLightbox from '@/components/sistem/ImgTumbLightbox.vue'
+import { useConfigStore } from '@/stores/config';
 
-const apiPriceCurrency = usePriceCurrency()
 const props = defineProps({
     productsDates: { type: Object, required: true },
     levelsDates: { type: Object, required: true },
@@ -39,56 +38,14 @@ const apiConfig = useConfigStore()
                 <div></div>
               </div>
    
-              
-              <table class="text-xs mt-1">
-                      <!-- <thead>
-                          <tr>
-                            <th>Imagen</th>
-                            <th>Nombre</th>
-                            <th>Precio</th>
-                          </tr>
-                      </thead> -->
-                      <tbody class="">
-                        <tr v-for="product in productsDates" :key="product.id" class="border-t border-primary-200">
-                          <td class="w-1/4" v-if="product.category_id == category.id">
-                              <ImgTumbLightbox 
-                                  
-                                  :uri="apiConfig.urlBack+product.image_hero_uri"
-                                  :name="product.image_hero"
-                                  :nameImg="product.category + ' - ' + product.name"
-                                  nameAlbum="productos"
-                              />
-                          </td>
-                          <td v-if="product.category_id == category.id">
-                            <div class="h-20 flex flex-col justify-between">
-                              <p class="font-bold italic">{{ product.name }}</p>
-                              <p>{{ product.description }}</p>
-                            </div>
-                          </td>
-                          <td v-if="product.category_id == category.id">
-                            <div class="h-20 flex flex-col justify-between">
-                              <p class="font-bold">{{ apiPriceCurrency.formatterCurrency.format(product.price_original) }}</p>
-                              <div></div>
-                            </div>
-                          </td>
-                      </tr>
-<!-- 
-                      <div v-for="product in productsDates" :key="product.id">
-                        <div v-if="product.category_id == category.id">
-                  
-
-                          <TableProduct 
-                            :product="product"
-                          />
-
-                  
-      
-                        </div>
-                      </div>
-               -->
-                    </tbody>
-                  </table>
-
+          
+              <div v-for="product in productsDates" :key="product.id" class="">
+                <CardTable
+                  v-if="product.category_id == category.id"
+                  class=" max-w-lg mx-auto lg:rounded-md"
+                  :product="product"
+                />
+              </div>
 
             </div>
 

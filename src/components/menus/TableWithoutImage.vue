@@ -49,6 +49,11 @@ const apiConfig = useConfigStore()
                             <div class="h-20 flex flex-col justify-start">
                               <p class="text-lg font-bold italic">{{ product.name }}</p>
                               <p>{{ product.description }}</p>
+                              <div class="my-1 flex flex-wrap items-center gap-1 overflow-x-auto overflow-hidden">
+
+                              <span v-for="tag in product.tags" class="block whitespace-nowrap  bg-primary-200 text-primary-900 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-primary-900 dark:text-primary-300">{{ tag.name }}</span>
+
+                              </div>
                             </div>
                           </td>
                           <td v-if="product.category_id == category.id" class="p-3">

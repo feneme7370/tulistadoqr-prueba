@@ -20,18 +20,27 @@
         <div class="flex justify-center gap-1 my-2 bg-primary-100 text-gray-700 min-h-28">
 
             <ImgTumbLightbox 
-                class="w-4/12"
+                v-if="product.image_hero != ''"
+                class="w-4/12 max-w-32 max-h-32"
                 :uri="apiConfig.urlBack+product.image_hero_uri"
                 :name="product.image_hero"
                 :nameImg="product.name"
                 nameAlbum="suggestion"
             />
 
-            <div class="w-8/12 py-1 px-2 flex flex-col justify-between">
+            <div
+                :class="product.image_hero != '' ? 'w-8/12': 'w-11/12'"
+                class="py-1 px-2 flex flex-col justify-between">
                 <div>
                 <p class="text-gray-800 text-sm font-bold">{{ product.name }}</p>
 
                 <p class="mb-1 font-light text-sm line-clamp-2">{{ product.description }}</p>
+                </div>
+
+                <div class="my-1 flex items-center gap-1 overflow-x-auto overflow-hidden">
+
+                <span v-for="tag in product.tags" class="block whitespace-nowrap  bg-primary-200 text-primary-900 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-primary-900 dark:text-primary-300">{{ tag.name }}</span>
+
                 </div>
 
                 <div v-if="product.price_original === product.price_seller || product.price_seller == '' || product.price_seller == '0'">
