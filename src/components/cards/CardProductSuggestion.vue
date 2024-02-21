@@ -2,6 +2,8 @@
   import { useConfigStore } from '@/stores/config';
   import { usePriceCurrency } from '@/composables/usePriceCurrency.js'
   import ImgTumbLightbox from '@/components/sistem/ImgTumbLightbox.vue'
+  import { useListStore } from '@/stores/list';
+  const apiList = useListStore()
   const apiConfig = useConfigStore()
   const apiPriceCurrency = usePriceCurrency()
 
@@ -43,12 +45,17 @@
 
                 </div>
 
-                <div v-if="product.price_original === product.price_seller || product.price_seller == '' || product.price_seller == '0'">
-                    <p class="mb-1 text-sm font-bold text-green-900">{{ apiPriceCurrency.formatterCurrency.format(product.price_original ) }}</p>
-                </div>
-                <div v-else>
-                    <span class="mb-1 mr-2 font-bold text-sm text-green-900">{{ apiPriceCurrency.formatterCurrency.format(product.price_seller ) }}</span>
-                    <span class="line-through mb-1 text-xs text-red-700 dark:text-red-400">{{ apiPriceCurrency.formatterCurrency.format(product.price_original ) }}</span>
+                <div class="flex justify-between items-center gap-1">
+                    <div v-if="product.price_original === product.price_seller || product.price_seller == '' || product.price_seller == '0'">
+                        <p class="mb-1 text-sm font-bold text-green-900">{{ apiPriceCurrency.formatterCurrency.format(product.price_original ) }}</p>
+                    </div>
+                    <div v-else>
+                        <span class="mb-1 mr-2 font-bold text-sm text-green-900">{{ apiPriceCurrency.formatterCurrency.format(product.price_seller ) }}</span>
+                        <span class="line-through mb-1 text-xs text-red-700 dark:text-red-400">{{ apiPriceCurrency.formatterCurrency.format(product.price_original ) }}</span>
+                    </div>
+                    <div>
+                        <button class="block whitespace-nowrap bg-green-100 text-green-800 text-sm font-bold my-2 me-2 px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300" @click="apiList.addToList(product)">Agregar</button>
+                    </div>
                 </div>
 
             </div>

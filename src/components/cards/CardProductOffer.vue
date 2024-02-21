@@ -2,6 +2,8 @@
   import { useConfigStore } from '@/stores/config';
   import {  usePriceCurrency } from '@/composables/usePriceCurrency.js'
   import ImgTumbLightbox from '@/components/sistem/ImgTumbLightbox.vue'
+  import { useListStore } from '@/stores/list';
+  const apiList = useListStore()
   const apiPriceCurrency = usePriceCurrency()
   const apiConfig = useConfigStore()
 
@@ -17,18 +19,20 @@
         <hr class="border-primary-300">
 
         <div class="flex flex-col items-start justify-between gap-1 my-2  text-gray-700 w-full min-h-36">
-            <ImgTumbLightbox 
-                v-if="product.image_hero != ''"
-                class="w-full h-48"
-                :uri="apiConfig.urlBack+product.image_hero_uri"
-                :name="product.image_hero"
-                :nameImg="product.category + ' - ' + product.name"
-                nameAlbum="offers"
-                tumb=true
-            />
+            <div>
+                <ImgTumbLightbox 
+                    v-if="product.image_hero != ''"
+                    class="w-full h-48"
+                    :uri="apiConfig.urlBack+product.image_hero_uri"
+                    :name="product.image_hero"
+                    :nameImg="product.category + ' - ' + product.name"
+                    nameAlbum="offers"
+                    tumb=true
+                />
+            </div>
 
 
-            <div class=" py-1 px-2 flex flex-col justify-between">
+            <div class=" py-1 px-2 flex flex-col justify-between w-full">
                 <div v-if="product.price_original === product.price_seller || product.price_seller == '' || product.price_seller == '0'">
                     <p class="mb-1 text-base font-bold text-green-900 ">{{ apiPriceCurrency.formatterCurrency.format(product.price_original) }}</p>
                 </div>
@@ -49,6 +53,9 @@
 
                 </div>
 
+                <div>
+                    <button class="w-full bg-green-100 text-green-800 text-sm font-bold my-2 me-2 px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300" @click="apiList.addToList(product)">Agregar</button>
+                </div>
             </div>
 
         </div>

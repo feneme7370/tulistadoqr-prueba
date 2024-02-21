@@ -11,10 +11,15 @@
 
   import SwiperSlider from '@/components/sistem/SwiperSlider.vue'
   import CardProductSuggestion from '@/components/cards/CardProductSuggestion.vue';
+  import ListProduct from '@/components/layouts/ListProduct.vue'
 
+  import {  usePriceCurrency } from '@/composables/usePriceCurrency.js'
+  import { formatearCantidad } from '@/helpers/price'
   // importar api de datos
+  import { useListStore } from '@/stores/list';
   import { useProductsStore } from '@/stores/products'
   const apiProducts = useProductsStore()
+  const apiList = useListStore()
 
 </script>
 
@@ -28,6 +33,7 @@
       :companiesDates="apiProducts.companiesDates"
     />
 
+    <ListProduct  />
     <!-- seleccionar menu -->
 
     <div class="flex justify-center items-center  max-w-lg mx-auto lg:rounded-md">
@@ -44,7 +50,33 @@
       </select>
     </div>
 
-  
+    <!-- <button @click="apiList.clearList">Vaciar lista</button>
+    
+    <div v-for="product in apiList.ListProduct">
+      <div class="flex items-center justify-between gap-1">
+        <div class="flex items-center gap-1">
+          <span class="text-gray-800 text-sm font-bold">{{ product.name }}</span>
+          <span class="text-gray-700 text-xs font-medium">({{ product.cantidad }})</span>
+        </div>
+        <div class="flex items-center gap-1">
+          <button class="block whitespace-nowrap  bg-primary-100 text-primary-800 text-xs font-medium my-2 me-2 px-2.5 py-0.5 w-6 h-6 rounded dark:bg-primary-900 dark:text-primary-300" @click="apiList.lessAmount(product.id)">-</button>
+          <span class="text-gray-700 text-xs font-medium">{{ formatearCantidad(product.price_seller > 0 ? product.price_seller : product.price_original)}} </span>
+          <button class="block whitespace-nowrap  bg-primary-100 text-primary-800 text-xs font-medium my-2 me-2 px-2.5 py-0.5 w-6 h-6 rounded dark:bg-primary-900 dark:text-primary-300" @click="apiList.moreAmount(product.id)">+</button>
+          <button class="block whitespace-nowrap  bg-red-100 text-red-800 text-xs font-medium my-2 me-2 px-2.5 py-0.5 rounded dark:bg-red-900 dark:text-red-300" @click="apiList.deleteProduct(product.id)">Quitar</button>
+        </div>
+      </div>
+      <div class="flex items-center justify-between gap-1">
+        
+        <span class="text-gray-700 text-xs font-medium">Total: {{ formatearCantidad(product.cantidad * (product.price_seller > 0 ? product.price_seller : product.price_original))}} </span>
+      </div>
+         
+
+
+
+      
+    </div> -->
+
+
     <!-- accordion -->
     <div v-if="apiProducts.menuSelected == '1'">
       <Accordion
