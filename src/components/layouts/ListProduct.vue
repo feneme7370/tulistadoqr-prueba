@@ -35,14 +35,6 @@
                 <div class="relative bg-white p-4 rounded-lg shadow dark:bg-gray-700">
 
                     
-
-
-
-
-
-
-
-
                     <div class="w-full flex justify-between items-center">
                         <span></span>
                         <button class=" bg-primary-200 text-primary-900 text-xs font-medium my-2 me-2 px-3 py-2 rounded dark:bg-primary-900 dark:text-primary-300"  @click="apiList.clearList">Vaciar lista</button>
@@ -60,13 +52,13 @@
                         <!-- <hr class="border-primary-300 w-2/3 mx-auto"> -->
                         <div class="flex items-center justify-between gap-1">
                         <div>
-                            <div class="flex items-center gap-1">
-                            <span class="text-gray-800 text-sm font-bold">{{ product.name }}</span>
-                            <span class="text-gray-700 text-xs font-medium">({{ product.cantidad }})</span>
+                            <div class="flex items-center gap-2">
+                                <span class="text-gray-700 text-sm font-medium">({{ product.cantidad }})</span>
+                                <span class="text-gray-800 text-sm font-bold">{{ product.name }}</span>
                             </div>
                             <div class="flex items-center justify-between gap-1">
                         
-                                <span class="text-gray-700 text-xs font-medium">$ C/u:{{ formatearCantidad(product.price_seller > 0 ? product.price_seller : product.price_original)}}</span>
+                                <span class="text-gray-700 text-xs font-medium">c/u:{{ formatearCantidad(product.price_seller > 0 ? product.price_seller : product.price_original)}}</span>
                                 
                                 <!-- <button class="block whitespace-nowrap  bg-red-100 text-red-800 text-xs font-medium my-2 me-2 px-2.5 py-0.5 rounded dark:bg-red-900 dark:text-red-300" @click="apiList.deleteProduct(product.id)">Quitar</button> -->
                             </div>
@@ -84,7 +76,7 @@
                     </div>
                     
                     
-                    <p v-if="totalAmount" class="flex justify-between mt-4 items-center text-gray-800 text-base font-bold">
+                    <p v-if="totalAmount" class="flex justify-between mt-10 items-center text-gray-800 text-base font-bold">
                         <span>Total a pagar:</span>
                         <span>{{ formatearCantidad(totalAmount) }}</span>
                     </p>

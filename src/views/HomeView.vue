@@ -13,8 +13,6 @@
   import CardProductSuggestion from '@/components/cards/CardProductSuggestion.vue';
   import ListProduct from '@/components/layouts/ListProduct.vue'
 
-  import {  usePriceCurrency } from '@/composables/usePriceCurrency.js'
-  import { formatearCantidad } from '@/helpers/price'
   // importar api de datos
   import { useListStore } from '@/stores/list';
   import { useProductsStore } from '@/stores/products'

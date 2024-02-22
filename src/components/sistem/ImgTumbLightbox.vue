@@ -10,9 +10,9 @@
     lightbox.option({
             'alwaysShowNavOnTouchDevices': true,
             'showImageNumberLabel': true,
-            'imageFadeDuration': 100,
-            'resizeDuration': 100,
-            'fadeDuration': 100,
+            'imageFadeDuration': 10,
+            'resizeDuration': 10,
+            'fadeDuration': 10,
             'disableScrolling': true,
             'wrapAround': true,
             'albumLabel': "Imagen %1 de %2",
