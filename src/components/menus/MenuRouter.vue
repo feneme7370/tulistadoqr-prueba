@@ -8,6 +8,7 @@ const props = defineProps({
     productsDates: { type: Object, required: true },
     levelsDates: { type: Object, required: true },
     categoriesDates: { type: Object, required: true },
+    companiesDates: { type: Object, required: true },
 })
 
 const levelId = ref('')
@@ -98,6 +99,7 @@ const levelIdSelected = (id) => {
             <CardProduct 
               class=" max-w-lg mx-auto lg:rounded-md"
               :product="product"
+              :addToListButton="companiesDates.membership.list_product"
             />
       
           </div>

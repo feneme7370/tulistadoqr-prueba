@@ -3,6 +3,7 @@
 
     const props = defineProps({
         offersDates: {type: Object, required: true},
+        addToListButton: {type: Number},
     })
 
     import { ref, defineProps, onMounted } from 'vue';
@@ -35,7 +36,7 @@ const modules = [Navigation, Pagination, Scrollbar, A11y];
         >
       
           <swiper-slide v-for="product in offersDates" class="px-1">
-              <CardProductOffer class="mb-10" :product="product"/>
+              <CardProductOffer class="mb-10" :product="product" :addToListButton="addToListButton"/>
           </swiper-slide>
           ...
         </swiper>

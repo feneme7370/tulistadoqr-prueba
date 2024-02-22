@@ -7,6 +7,7 @@ const props = defineProps({
     productsDates: { type: Object, required: true },
     levelsDates: { type: Object, required: true },
     categoriesDates: { type: Object, required: true },
+    companiesDates: { type: Object, required: true },
 })
 
 const apiConfig = useConfigStore()
@@ -43,6 +44,7 @@ const apiConfig = useConfigStore()
                   
                   <CardProduct 
                     :product="product"
+                    :addToListButton="companiesDates.membership.list_product"
                   />
       
                 </div>

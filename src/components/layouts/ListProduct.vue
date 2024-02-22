@@ -6,22 +6,26 @@
 //   const apiProducts = useProductsStore()
   const apiList = useListStore()
 
+
+
   const totalAmount = computed(()=>{
         return apiList.ListProduct.reduce((total, product) => 
             total + (product.cantidad * (product.price_seller > 0 ? product.price_seller : product.price_original)), 0
         )
     })
+
 </script>
 
 <template>
 
-    <div class="px-2">
+    <div class="px-2" >
 
 
 
+        <div>
         <!-- Modal toggle -->
         <button data-modal-target="list-product-modal" data-modal-toggle="list-product-modal" class="bg-primary-900 text-gray-200 w-full text-lg font-bold my-2 me-2 px-3 py-2 rounded dark:bg-primary-900 dark:text-primary-300" type="button">
-        Ver mi pedido
+        Voy a pedir al mozo
         </button>
 
         <!-- Main modal -->
@@ -93,6 +97,7 @@
             </div>
         </div>
 
+        </div>
     </div>
     
 </template>

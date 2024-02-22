@@ -9,6 +9,7 @@
 
     const props = defineProps({
         product: {type: Object, required: true},
+        addToListButton: {type: Number},
     })
 </script>
 
@@ -53,7 +54,7 @@
 
                 </div>
 
-                <div>
+                <div v-if="addToListButton">
                     <button class="w-full bg-green-100 text-green-800 text-sm font-bold my-2 me-2 px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300" @click="apiList.addToList(product)">Agregar</button>
                 </div>
             </div>

@@ -9,6 +9,7 @@
 
     const props = defineProps({
         product: {type: Object, required: true},
+        addToListButton: {type: Number},
     })
 </script>
 
@@ -55,7 +56,7 @@
                         <span class="mb-1 mr-2 font-bold text-sm text-green-900 ">{{ apiPriceCurrency.formatterCurrency.format(product.price_seller) }}</span>
                         <span class="line-through mb-1 text-xs text-red-700 ">{{ apiPriceCurrency.formatterCurrency.format(product.price_original) }}</span>
                     </div>
-                    <div>
+                    <div v-if="addToListButton">
                         <button class="block whitespace-nowrap bg-green-100 text-green-800 text-sm font-bold my-2 me-2 px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300" @click="apiList.addToList(product)">Agregar</button>
                     </div>
                 </div>
