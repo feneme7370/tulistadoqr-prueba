@@ -4,7 +4,7 @@ import axios from "axios";
 const api = axios.create({
     // baseURL : 'https://www.thecocktaildb.com/api/json/v1/1'
     // baseURL : 'http://localhost:8000/api/',
-    baseURL : 'https://tumenuqr.femaser.com/api', 
+    baseURL : 'https://tulistadoqr.femaser.com/api', 
     // baseURL : 'https://www.tumenuqr.up.railway.app/api
     headers : {
         'Accept': 'application/json',

@@ -4,7 +4,7 @@ export const useConfigStore = defineStore( 'apiConfig', () => {
 
     const urlFront = 'http://localhost:5137/'
     // const urlBack = 'http://localhost:8000/'
-    const urlBack = 'https://tumenuqr.femaser.com/'
+    const urlBack = 'https://tulistadoqr.femaser.com/'
  
     return {
         urlBack,
