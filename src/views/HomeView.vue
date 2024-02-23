@@ -14,10 +14,8 @@
   import ListProduct from '@/components/layouts/ListProduct.vue'
 
   // importar api de datos
-  import { useListStore } from '@/stores/list';
   import { useProductsStore } from '@/stores/products'
   const apiProducts = useProductsStore()
-  const apiList = useListStore()
 
 </script>
 

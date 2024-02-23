@@ -1,8 +1,7 @@
 <script setup>
 import { ref } from 'vue';
 import CardProduct from '@/components/cards/CardProduct.vue';
-import { useConfigStore } from '@/stores/config';
-const apiConfig = useConfigStore()
+import { urlBack, urlFront } from '@/helpers/config'
 
 const props = defineProps({
     productsDates: { type: Object, required: true },
@@ -37,7 +36,7 @@ const levelIdSelected = (id) => {
                 <img 
                     loading="lazy"
                     class="w-full h-full object-cover rounded-lg"
-                    :src="apiConfig.urlBack+level.image_hero_uri+level.image_hero" 
+                    :src="urlBack()+level.image_hero_uri+level.image_hero" 
                     alt="imagen portada"
                 >
                 
@@ -72,7 +71,7 @@ const levelIdSelected = (id) => {
                 <img 
                     loading="lazy"
                     class="w-20 h-20 object-cover rounded-lg"
-                    :src="apiConfig.urlBack+category.image_hero_uri+category.image_hero" 
+                    :src="urlBack()+category.image_hero_uri+category.image_hero" 
                     alt="imagen portada"
                 >
 

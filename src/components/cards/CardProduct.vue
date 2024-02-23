@@ -1,11 +1,9 @@
 <script setup>
-  import { useConfigStore } from '@/stores/config';
-  import {  usePriceCurrency } from '@/composables/usePriceCurrency.js'
+  import ImgTumbLightbox from '@/components/sistem/ImgTumbLightbox.vue'
+  import { formatCurrency } from '@/helpers/price'
+  import { urlBack, urlFront } from '@/helpers/config'
   import { useListStore } from '@/stores/list';
   const apiList = useListStore()
-  import ImgTumbLightbox from '@/components/sistem/ImgTumbLightbox.vue'
-  const apiPriceCurrency = usePriceCurrency()
-  const apiConfig = useConfigStore()
 
     const props = defineProps({
         product: {type: Object, required: true},
@@ -39,11 +37,11 @@
 
                 <div class="flex justify-between items-center">
                     <div v-if="product.price_original === product.price_seller || product.price_seller == '' || product.price_seller == '0'">
-                        <p class="mb-1 text-sm font-bold text-green-900 ">{{ apiPriceCurrency.formatterCurrency.format(product.price_original) }}</p>
+                        <p class="mb-1 text-sm font-bold text-green-900 ">{{ formatCurrency(product.price_original)}}</p>
                     </div>
                     <div v-else>
-                        <span class="mb-1 mr-2 font-bold text-sm text-green-900 ">{{ apiPriceCurrency.formatterCurrency.format(product.price_seller) }}</span>
-                        <span class="line-through mb-1 text-xs text-red-700 ">{{ apiPriceCurrency.formatterCurrency.format(product.price_original) }}</span>
+                        <span class="mb-1 mr-2 font-bold text-sm text-green-900 ">{{ formatCurrency(product.price_seller)}}</span>
+                        <span class="line-through mb-1 text-xs text-red-700 ">{{ formatCurrency(product.price_original)}}</span>
                     </div>
                     <div v-if="addToListButton">
                         <button class="block whitespace-nowrap bg-green-100 text-green-800 text-sm font-bold my-2 me-2 px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300" @click="apiList.addToList(product)">Agregar</button>
@@ -54,7 +52,7 @@
             <ImgTumbLightbox 
                 v-if="product.image_hero != ''"
                 class="w-1/4 max-w-32 max-h-32"
-                :uri="apiConfig.urlBack+product.image_hero_uri"
+                :uri="urlBack()+product.image_hero_uri"
                 :name="product.image_hero"
                 :nameImg="product.category + ' - ' + product.name"
                 nameAlbum="productos"

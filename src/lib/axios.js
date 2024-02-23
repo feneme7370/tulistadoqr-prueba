@@ -1,11 +1,9 @@
 import axios from "axios";
+import { urlBack } from "@/helpers/config";
 
 // al llamar a api, tomara la url referenciada, sirve para services
 const api = axios.create({
-    // baseURL : 'https://www.thecocktaildb.com/api/json/v1/1'
-    // baseURL : 'http://localhost:8000/api/',
-    baseURL : 'https://tulistadoqr.femaser.com/api', 
-    // baseURL : 'https://www.tumenuqr.up.railway.app/api
+    baseURL : urlBack()+'api/',
     headers : {
         'Accept': 'application/json',
         'Content-Type': 'application/json',

@@ -1,6 +1,6 @@
 <script setup>
     import { computed } from 'vue';
-  import { formatearCantidad } from '@/helpers/price'
+  import { formatCurrency } from '@/helpers/price'
   import { useListStore } from '@/stores/list';
 //   import { useProductsStore } from '@/stores/products'
 //   const apiProducts = useProductsStore()
@@ -58,7 +58,7 @@
                             </div>
                             <div class="flex items-center justify-between gap-1">
                         
-                                <span class="text-gray-700 text-xs font-medium">c/u:{{ formatearCantidad(product.price_seller > 0 ? product.price_seller : product.price_original)}}</span>
+                                <span class="text-gray-700 text-xs font-medium">c/u:{{ formatCurrency(product.price_seller > 0 ? product.price_seller : product.price_original)}}</span>
                                 
                                 <!-- <button class="block whitespace-nowrap  bg-red-100 text-red-800 text-xs font-medium my-2 me-2 px-2.5 py-0.5 rounded dark:bg-red-900 dark:text-red-300" @click="apiList.deleteProduct(product.id)">Quitar</button> -->
                             </div>
@@ -66,7 +66,7 @@
                     
                         <div class="flex items-center gap-1">
                         <button class="block whitespace-nowrap  bg-primary-100 text-primary-800 text-sm font-medium my-2 px-2.5 py-0.5 w-6 h-6 rounded dark:bg-primary-900 dark:text-primary-300" @click="apiList.lessAmount(product.id)">-</button>
-                        <span class="text-gray-700 text-xs font-medium">{{ formatearCantidad(product.cantidad * (product.price_seller > 0 ? product.price_seller : product.price_original))}}</span>
+                        <span class="text-gray-700 text-xs font-medium">{{ formatCurrency(product.cantidad * (product.price_seller > 0 ? product.price_seller : product.price_original))}}</span>
                         <button class="block whitespace-nowrap  bg-primary-100 text-primary-800 text-sm font-medium my-2 px-2.5 py-0.5 w-6 h-6 rounded dark:bg-primary-900 dark:text-primary-300" @click="apiList.moreAmount(product.id)">+</button>
                     
                         </div>
@@ -78,7 +78,7 @@
                     
                     <p v-if="totalAmount" class="flex justify-between mt-10 items-center text-gray-800 text-base font-bold">
                         <span>Total a pagar:</span>
-                        <span>{{ formatearCantidad(totalAmount) }}</span>
+                        <span>{{ formatCurrency(totalAmount) }}</span>
                     </p>
                     <p v-else class="font-bold italic text-center my-5">Agregue productos a su pedido</p>
 

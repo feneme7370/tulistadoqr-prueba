@@ -1,7 +1,7 @@
 <script setup>
 import CardProduct from '@/components/cards/CardProduct.vue'
 import ImgTumbLightbox from '@/components/sistem/ImgTumbLightbox.vue'
-import { useConfigStore } from '@/stores/config';
+import { urlBack, urlFront } from '@/helpers/config'
 
 const props = defineProps({
     productsDates: { type: Object, required: true },
@@ -10,7 +10,6 @@ const props = defineProps({
     companiesDates: { type: Object, required: true },
 })
 
-const apiConfig = useConfigStore()
 
 
 </script>
@@ -31,7 +30,7 @@ const apiConfig = useConfigStore()
               <div class="flex justify-start items-center gap-3 sm:px-3 bg-primary-200 h-20 lg:rounded-md">
                 <ImgTumbLightbox 
                         class="w-12 h-12"
-                        :uri="apiConfig.urlBack+category.image_hero_uri"
+                        :uri="urlBack()+category.image_hero_uri"
                         :name="category.image_hero"
                         :nameImg="category.name"
                     />

@@ -1,8 +1,7 @@
 <script setup>
 
     // importar configuraciones
-    import { useConfigStore } from '@/stores/config';
-    const apiConfig = useConfigStore()
+    import { urlBack, urlFront } from '@/helpers/config'
 
     // recibir datos
     const props = defineProps({
@@ -18,7 +17,7 @@
     <img 
         loading="lazy"
         class="w-full opacity-30 object-cover min-h-48"
-        :src="apiConfig.urlBack+companiesDates.image_hero_uri+ companiesDates.image_hero" 
+        :src="urlBack()+companiesDates.image_hero_uri+ companiesDates.image_hero" 
         alt="imagen portada"
     >
 

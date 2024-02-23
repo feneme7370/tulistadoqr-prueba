@@ -1,11 +1,9 @@
 <script setup>
-  import { useConfigStore } from '@/stores/config';
-  import {  usePriceCurrency } from '@/composables/usePriceCurrency.js'
+  import { formatCurrency } from '@/helpers/price'
   import ImgTumbLightbox from '@/components/sistem/ImgTumbLightbox.vue'
+  import { urlBack, urlFront } from '@/helpers/config'
   import { useListStore } from '@/stores/list';
   const apiList = useListStore()
-  const apiPriceCurrency = usePriceCurrency()
-  const apiConfig = useConfigStore()
 
     const props = defineProps({
         product: {type: Object, required: true},
@@ -24,7 +22,7 @@
                 <ImgTumbLightbox 
                     v-if="product.image_hero != ''"
                     class="w-full h-48"
-                    :uri="apiConfig.urlBack+product.image_hero_uri"
+                    :uri="urlBack()+product.image_hero_uri"
                     :name="product.image_hero"
                     :nameImg="product.category + ' - ' + product.name"
                     nameAlbum="offers"
@@ -35,11 +33,11 @@
 
             <div class=" py-1 px-2 flex flex-col justify-between w-full">
                 <div v-if="product.price_original === product.price_seller || product.price_seller == '' || product.price_seller == '0'">
-                    <p class="mb-1 text-base font-bold text-green-900 ">{{ apiPriceCurrency.formatterCurrency.format(product.price_original) }}</p>
+                    <p class="mb-1 text-base font-bold text-green-900 ">{{ formatCurrency(product.price_original)}}</p>
                 </div>
                 <div v-else>
-                    <span class="mb-1 mr-2 font-bold text-base text-green-900 ">{{ apiPriceCurrency.formatterCurrency.format(product.price_seller) }}</span>
-                    <span class="line-through mb-1 text-xs text-red-700 ">{{ apiPriceCurrency.formatterCurrency.format(product.price_original) }}</span>
+                    <span class="mb-1 mr-2 font-bold text-base text-green-900 ">{{ formatCurrency(product.price_seller)}}</span>
+                    <span class="line-through mb-1 text-xs text-red-700 ">{{ formatCurrency(product.price_original)}}</span>
                 </div>
 
                 <div>

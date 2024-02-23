@@ -2,7 +2,8 @@
 import { ref } from 'vue'
 import CardProduct from '@/components/cards/CardProduct.vue'
 import ImgTumbLightbox from '@/components/sistem/ImgTumbLightbox.vue'
-import { useConfigStore } from '@/stores/config';
+
+import { urlBack, urlFront } from '@/helpers/config'
 
 const props = defineProps({
     productsDates: { type: Object, required: true },
@@ -11,7 +12,6 @@ const props = defineProps({
     companiesDates: { type: Object, required: true },
 })
 
-const apiConfig = useConfigStore()
 const activeIndices  = ref([]);
 
 const toggleAccordion = (index) => {
@@ -59,7 +59,7 @@ const toggleAccordion = (index) => {
                   <div class="flex justify-start items-center gap-3">
                     <ImgTumbLightbox v-if="category.image_hero_uri"
                         class="w-12 h-12 rounded-lg"
-                        :uri="apiConfig.urlBack+category.image_hero_uri"
+                        :uri="urlBack()+category.image_hero_uri"
                         :name="category.image_hero"
                         :nameImg="category.name"
                     />
