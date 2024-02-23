@@ -18,10 +18,10 @@
         <hr class="border-primary-300">
 
         <div class="flex flex-col items-start justify-between gap-1 my-2  text-gray-700 w-full min-h-36">
-            <div>
+            <div class="w-48 h-48 rounded-sm overflow-hidden">
                 <ImgTumbLightbox 
                     v-if="product.image_hero != ''"
-                    class="w-full h-48"
+                    class=""
                     :uri="urlBack()+product.image_hero_uri"
                     :name="product.image_hero"
                     :nameImg="product.category + ' - ' + product.name"

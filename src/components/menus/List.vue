@@ -29,7 +29,7 @@ const props = defineProps({
       
               <div class="flex justify-start items-center gap-3 sm:px-3 bg-primary-200 h-20 lg:rounded-md">
                 <ImgTumbLightbox 
-                        class="w-12 h-12"
+                        class="w-12 h-12 rounded-r-xl overflow-hidden"
                         :uri="urlBack()+category.image_hero_uri"
                         :name="category.image_hero"
                         :nameImg="category.name"

@@ -24,7 +24,7 @@
 
         <div>
         <!-- Modal toggle -->
-        <button data-modal-target="list-product-modal" data-modal-toggle="list-product-modal" class="bg-primary-900 text-gray-200 w-full text-lg font-bold my-2 me-2 px-3 py-2 rounded dark:bg-primary-900 dark:text-primary-300" type="button">
+        <button data-modal-target="list-product-modal" data-modal-toggle="list-product-modal" class="bg-primary-900 text-gray-50 w-full text-lg font-bold my-2 me-2 px-3 py-2 rounded" type="button">
         Voy a pedir al mozo
         </button>
 
@@ -50,10 +50,10 @@
                     <div v-for="product in apiList.ListProduct">
                     
                         <!-- <hr class="border-primary-300 w-2/3 mx-auto"> -->
-                        <div class="flex items-center justify-between gap-1">
+                        <div class="flex items-center justify-between gap-1 my-2">
                         <div>
                             <div class="flex items-center gap-2">
-                                <span class="text-gray-700 text-sm font-medium">({{ product.cantidad }})</span>
+                                <span class="text-gray-700 text-base font-bold">({{ product.cantidad }})</span>
                                 <span class="text-gray-800 text-sm font-bold">{{ product.name }}</span>
                             </div>
                             <div class="flex items-center justify-between gap-1">

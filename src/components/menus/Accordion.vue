@@ -58,7 +58,7 @@ const toggleAccordion = (index) => {
       
                   <div class="flex justify-start items-center gap-3">
                     <ImgTumbLightbox v-if="category.image_hero_uri"
-                        class="w-12 h-12 rounded-lg"
+                        class="w-12 h-12 rounded-r-xl overflow-hidden"
                         :uri="urlBack()+category.image_hero_uri"
                         :name="category.image_hero"
                         :nameImg="category.name"

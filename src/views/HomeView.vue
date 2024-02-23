@@ -34,17 +34,18 @@
       />
     <!-- seleccionar menu -->
 
-    <div class="flex justify-center items-center  max-w-lg mx-auto lg:rounded-md">
+    <div class="flex flex-col justify-center my-7 items-center max-w-lg mx-auto lg:rounded-md">
+      <p class="italic text-xs text-center">Selecciona el menu facilmente desde la demo</p>
       <select 
         id="apiProducts.menuSelected" 
         v-model="apiProducts.menuSelected"
         placeholder="Formato del menu" 
-        class=" my-2 mx-5 px-4 py-2 text-center border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-gray-500 focus:border-gray-500 block w-3/4 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-gray-500 dark:focus:border-gray-500">
+        class=" my-2 mx-5 px-4 py-2 text-center border font-bold bg-primary-200 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-gray-500 focus:border-gray-500 block w-3/4">
         <!-- <option selected>Choose a country</option> -->
-        <option class="text-sm mx-auto italic" value="1">Desplegable</option>
-        <option class="text-sm mx-auto italic" value="2">Listado</option>
-        <option class="text-sm mx-auto italic" value="3">Secciones</option>
-        <option class="text-sm mx-auto italic" value="4">Tabla</option>
+        <option class="text-sm font-light mx-auto italic" value="1">Desplegable</option>
+        <option class="text-sm font-light mx-auto italic" value="2">Listado</option>
+        <option class="text-sm font-light mx-auto italic" value="3">Secciones</option>
+        <option class="text-sm font-light mx-auto italic" value="4">Tabla</option>
       </select>
     </div>
 
