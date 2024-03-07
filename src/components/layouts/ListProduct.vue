@@ -113,7 +113,7 @@
                             </p>
                         </div>
 
-                        <a :href="'https://api.whatsapp.com/send/?phone=5492396513953&amp;text=Quiero\n'+ totalWsp +'\nNombre: '+nameClient+'\nDireccion: '+adressClient+'\nMetodo: '+formatClient+'.'" target="_blank"
+                        <a :href="'https://api.whatsapp.com/send/?phone=5492396513953&amp;text='+encodeURIComponent('Quiero pedir\n'+totalWsp+'%0ANombre: '+nameClient+'%3ADireccion: '+adressClient+'Metodo: '+formatClient+'.')" target="_blank"
                             class="block w-full px-2 py-3 mt-3 text-base font-semibold text-center text-white bg-gray-900 rounded shadow-sm hover:bg-primary-600">Lo quiero!</a>
                     </div>
                     <p v-else class="font-bold italic text-center my-5">Agregue productos a su pedido</p>
