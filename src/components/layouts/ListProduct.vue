@@ -22,7 +22,6 @@
             total + (product.cantidad +' - '+product.name+', \n'), ''
         )
     })
-    const listWsp = ref('Quiero pedir \n'+totalWsp)
 
 </script>
 
@@ -65,7 +64,7 @@
                         </div>
                         <div>
                             <label for="adress_client" class="block mt-2 text-sm font-medium text-gray-900 ">Direccion</label>
-                            <input v-model="adressClient" type="text" id="adress_client" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg active:outline-none focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5" placeholder="Su nombre" />
+                            <input v-model="adressClient" type="text" id="adress_client" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg active:outline-none focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5" placeholder="Su direccion" />
                         </div>
                         <div>
                             <label for="format_client" class="block mt-2 text-sm font-medium text-gray-900 ">Forma</label>
