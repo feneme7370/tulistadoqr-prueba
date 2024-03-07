@@ -1,5 +1,6 @@
 import { defineStore } from "pinia";
 import { reactive, ref, onMounted, watch } from 'vue';
+import { toastrError, toastrSuccess } from "@/helpers/toastr-message";
 
 export const useListStore = defineStore( 'apiList', () => {
 
@@ -33,22 +34,7 @@ export const useListStore = defineStore( 'apiList', () => {
             product.cantidad = 1;
             ListProduct.value.push(product);
         }
-        Toastify({
-            text: 'Agregado al pedido',
-            duration: 4000,
-            // destination: "https://github.com/apvarun/toastify-js",
-            newWindow: true,
-            close: true,
-            gravity: "top", // `top` or `bottom`
-            position: "right", // `left`, `center` or `right`
-            stopOnFocus: true, // Prevents dismissing of toast on hover
-            style: {
-              background: "#f0fdf4",
-              color: "#166534",
-            },
-            onClick: function(){} // Callback after click
-          }).showToast();
-        // guardarLocalStorage()
+        toastrSuccess('Agregado al pedido')
     }
 
     const lessAmount = (id) => {
@@ -71,41 +57,14 @@ export const useListStore = defineStore( 'apiList', () => {
     const deleteProduct = (id) => {
         ListProduct.value = ListProduct.value.filter(producto => producto.id !== id)
         // guardarLocalStorage()
-        Toastify({
-            text: 'Se quito el producto',
-            duration: 4000,
-            // destination: "https://github.com/apvarun/toastify-js",
-            newWindow: true,
-            close: true,
-            gravity: "top", // `top` or `bottom`
-            position: "right", // `left`, `center` or `right`
-            stopOnFocus: true, // Prevents dismissing of toast on hover
-            style: {
-              background: "#f0fdf4",
-              color: "#166534",
-            },
-            onClick: function(){} // Callback after click
-          }).showToast();
+        toastrSuccess('Eliminado del pedido')
     }
 
     const clearList = () => {
         ListProduct.value = []
         // guardarLocalStorage()
-        Toastify({
-            text: 'Se vacio el pedido',
-            duration: 4000,
-            // destination: "https://github.com/apvarun/toastify-js",
-            newWindow: true,
-            close: true,
-            gravity: "top", // `top` or `bottom`
-            position: "right", // `left`, `center` or `right`
-            stopOnFocus: true, // Prevents dismissing of toast on hover
-            style: {
-              background: "#f0fdf4",
-              color: "#166534",
-            },
-            onClick: function(){} // Callback after click
-          }).showToast();
+        toastrSuccess('Se vacio el pedido')
+
     }
 
     const guardarLocalStorage = () => {
