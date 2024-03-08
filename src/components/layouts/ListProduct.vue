@@ -69,7 +69,7 @@
                         <div>
                             <label for="format_client" class="block mt-2 text-sm font-medium text-gray-900 ">Forma</label>
                             <select v-model="formatClient" id="format_client" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg active:outline-none focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5">
-                                <option value="Envio a domicilio">Envio a domicilio</option>
+                                <option selected value="Envio a domicilio">Envio a domicilio</option>
                                 <option value="Paso a retirar">Paso a retirar</option>
                                 <option value="Pedido desde la mesa">Pedido desde la mesa</option>
                             </select>
@@ -88,14 +88,14 @@
                             </div>
                             <div class="flex items-center justify-between gap-1">
                         
-                                <span class="text-gray-700 text-xs font-medium">c/u:{{ formatCurrency(product.price_seller > 0 ? product.price_seller : product.price_original)}}</span>
+                                <span class="text-gray-700 text-xs font-medium">c/u:{{ formatCurrency((product.price_seller > 0 && product.price_seller < product.price_original) ? product.price_seller : product.price_original)}}</span>
 
                             </div>
                         </div>
                     
                         <div class="flex items-center gap-1">
                         <button class="block whitespace-nowrap  bg-primary-100 text-primary-800 text-sm font-medium my-2 px-2.5 py-0.5 w-6 h-6 rounded " @click="apiList.lessAmount(product.id)">-</button>
-                        <span class="text-gray-700 text-xs font-medium">{{ formatCurrency(product.cantidad * (product.price_seller > 0 ? product.price_seller : product.price_original))}}</span>
+                        <span class="text-gray-700 text-xs font-medium">{{ formatCurrency(product.cantidad * ((product.price_seller > 0 && product.price_seller < product.price_original) ? product.price_seller : product.price_original))}}</span>
                         <button class="block whitespace-nowrap  bg-primary-100 text-primary-800 text-sm font-medium my-2 px-2.5 py-0.5 w-6 h-6 rounded " @click="apiList.moreAmount(product.id)">+</button>
                     
                         </div>

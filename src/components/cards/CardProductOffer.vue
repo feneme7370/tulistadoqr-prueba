@@ -32,7 +32,7 @@
 
 
             <div class=" py-1 px-2 flex flex-col justify-between w-full">
-                <div v-if="product.price_original === product.price_seller || product.price_seller == '' || product.price_seller == '0'">
+                <div v-if="product.price_original < product.price_seller || product.price_seller == '' || product.price_seller == '0'">
                     <p class="mb-1 text-base font-bold text-green-900 ">{{ formatCurrency(product.price_original)}}</p>
                 </div>
                 <div v-else>
@@ -48,12 +48,12 @@
 
                 <div class="my-1 flex items-center gap-1 overflow-x-auto overflow-hidden">
 
-                <span v-for="tag in product.tags" class="block whitespace-nowrap  bg-primary-100 text-primary-800 text-xs font-medium my-2 me-2 px-2.5 py-0.5 rounded dark:bg-primary-900 dark:text-primary-300">{{ tag.name }}</span>
+                <span v-for="tag in product.tags" class="block whitespace-nowrap  bg-primary-100 text-primary-800 text-xs font-medium my-2 me-2 px-2.5 py-0.5 rounded ">{{ tag.name }}</span>
 
                 </div>
 
                 <div v-if="addToListButton">
-                    <button class="w-full bg-green-100 text-green-800 text-sm font-bold my-2 me-2 px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300" @click="apiList.addToList(product)">Agregar</button>
+                    <button class="w-full bg-green-200 text-green-800 text-sm font-bold my-2 me-2 px-2.5 py-0.5 rounded" @click="apiList.addToList(product)">Agregar</button>
                 </div>
             </div>
 
