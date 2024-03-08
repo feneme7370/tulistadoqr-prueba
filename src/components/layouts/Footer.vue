@@ -65,7 +65,7 @@
 
                     <!-- <div v-for="social in companiesDates.socialMedia"> -->
                         <div v-for="social in companiesDates.socialMedia" :key="social.id" class="flex justify-center flex-wrap">
-                            <a v-if="social.pivot.url != ''" :href="'https://'+social.pivot.url" target="_blank" class="m-2 text-gray-500 hover:text-gray-100">
+                            <a  v-if="social.pivot.url != '' && social.pivot.url.includes('www')" :href="(social.pivot.url.includes('http') ? '' : 'https://')+social.pivot.url" target="_blank" class="m-2 text-gray-500 hover:text-gray-100">
                                 <SocialIcons :icon="social.slug" class="bg-gray-200 p-2 rounded-3xl"/>
                                 <!-- <span class="sr-only ">{{social.slug}}</span> -->
                             </a>

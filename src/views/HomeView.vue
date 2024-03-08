@@ -32,6 +32,7 @@
 
     <ListProduct 
       class=""
+      :companiesDates="apiProducts.companiesDates"
       :class="apiProducts.companiesDates.list_product ? 'block' : 'hidden'"
     />
 
@@ -104,6 +105,7 @@
       :companiesDates="apiProducts.companiesDates"
     />
 
+    <!-- ofertas -->
     <div v-if="apiProducts.offersDates.length > 0" class="mb-10 max-w-lg mx-auto lg:rounded-md bg-primary-100 pb-2 pt-5">
         <h2 class="text-center font-bold text-4xl mb-2">Ofertas</h2>
       
