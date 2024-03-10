@@ -49,7 +49,7 @@
     />
 
     <div class="p-2 flex flex-col gap-2">
-      <p ><a class="flex items-center gap-1 text-primary-800 hover:underline" :href="'https://api.whatsapp.com/send/?phone='+urlDeWhatsapp+'&amp;text='+encodeURIComponent('<strong>Quiero</strong> \*consultar\*:\n')">
+      <p ><a class="flex items-center gap-1 text-primary-800 hover:underline" target="_blank" :href="'https://api.whatsapp.com/send/?phone='+urlDeWhatsapp+'&amp;text='+encodeURIComponent('\*Quiero consultar\*: \n')">
         <SocialIcons icon="whatsapp"/>
         <span>Enviar WhatsApp</span>
       </a></p>
