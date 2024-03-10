@@ -40,7 +40,7 @@ const props = defineProps({
               <div v-for="product in productsDates" :key="product.id" class="">
                 <CardTable
                   v-if="product.category_id == category.id"
-                  class=" max-w-lg mx-auto lg:rounded-md"
+                  class="animate__animated animate__flipInX animate__faster max-w-lg mx-auto lg:rounded-md"
                   :product="product"
                   :addToListButton="companiesDates.membership.list_product"
                 />

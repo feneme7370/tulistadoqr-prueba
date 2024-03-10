@@ -21,7 +21,7 @@
             <div class="w-48 h-48 mx-auto rounded-sm overflow-hidden">
                 <ImgTumbLightbox 
                     v-if="product.image_hero != ''"
-                    class=""
+                    class="w-full"
                     :uri="urlBack()+product.image_hero_uri"
                     :name="product.image_hero"
                     :nameImg="product.category + ' - ' + product.name"

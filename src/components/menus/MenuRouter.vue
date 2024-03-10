@@ -32,7 +32,7 @@ const levelIdSelected = (id) => {
         
         <div v-if="categoriesDates.some(category => category.level_id === level.id)" >
 
-          <div @click="levelIdSelected(level.id)" class="my-2 bg-center bg-no-repeat w-28 h-28 px-1 mx-5 relative">
+          <div @click="levelIdSelected(level.id)" class="my-2 bg-center bg-no-repeat w-28 h-28 px-1 mx-5 relative animate__animated animate__backInUp animate__faster">
                 <img 
                     loading="lazy"
                     class="w-full h-full object-cover rounded-lg"
@@ -65,7 +65,7 @@ const levelIdSelected = (id) => {
 
             <div 
               v-if="category.level_id == levelId" 
-              class="mb-10 bg-center bg-no-repeat w-20 h-20 cursor-pointer relative mx-5"
+              class="animate__animated animate__backInUp animate__faster mb-10 bg-center bg-no-repeat w-20 h-20 cursor-pointer relative mx-5"
               @click="categoryId = category.id"
             >
                 <img 
@@ -96,7 +96,7 @@ const levelIdSelected = (id) => {
           <div v-if="product.category_id === categoryId">
       
             <CardProduct 
-              class=" max-w-lg mx-auto lg:rounded-md"
+              class=" max-w-lg mx-auto lg:rounded-md animate__animated animate__backInUp animate__faster"
               :product="product"
               :addToListButton="companiesDates.membership.list_product"
             />

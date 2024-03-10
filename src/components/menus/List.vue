@@ -42,6 +42,7 @@ const props = defineProps({
                 <div v-if="product.category_id == category.id">
                   
                   <CardProduct 
+                    class="animate__animated animate__faster animate__bounceIn"
                     :product="product"
                     :addToListButton="companiesDates.membership.list_product"
                   />

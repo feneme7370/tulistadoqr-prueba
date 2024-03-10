@@ -1,5 +1,6 @@
 <script setup>
-  import { ref, computed, onMounted } from 'vue';
+  import { ref, computed, onMounted, watch } from 'vue';
+  import SocialIcons from '@/components/layouts/SocialIcons.vue';
   import ImageHero from '@/components/layouts/ImageHero.vue';
   import ImageDescription from '@/components/layouts/ImageDescription.vue';
 
@@ -18,6 +19,16 @@
   import { useProductsStore } from '@/stores/products'
   const apiProducts = useProductsStore()
 
+  const urlDeWhatsapp = ref('')
+    
+    // Utilizar el hook watch para esperar cambios en props.companiesDates
+    watch(() => apiProducts.companiesDates, (newCompaniesDates) => {
+      // Verificar si props.companiesDates tiene datos antes de acceder a la URL de WhatsApp
+      if (newCompaniesDates && newCompaniesDates.socialMedia) {
+        const whatsappObj = newCompaniesDates.socialMedia.find(media => media.slug === 'whatsapp');
+        urlDeWhatsapp.value = whatsappObj ? whatsappObj.pivot.url : '';
+      }
+    });
 </script>
 
 <template>
@@ -33,11 +44,20 @@
     <ListProduct 
       class=""
       :companiesDates="apiProducts.companiesDates"
+      :urlDeWhatsapp="urlDeWhatsapp"
       :class="apiProducts.companiesDates.list_product ? 'block' : 'hidden'"
     />
 
-    <!-- seleccionar menu -->
+    <div class="p-2 flex flex-col gap-2">
+      <p ><a class="flex items-center gap-1 text-primary-800 hover:underline" :href="'https://api.whatsapp.com/send/?phone='+urlDeWhatsapp+'&amp;text='+encodeURIComponent('<strong>Quiero</strong> \*consultar\*:\n')">
+        <SocialIcons icon="whatsapp"/>
+        <span>Enviar WhatsApp</span>
+      </a></p>
+      <p class="italic"><span class="font-bold">Direccion:</span> {{ apiProducts.companiesDates.adress }}</p>
+      <p class="italic"><span class="font-bold">Localidad:</span> {{ apiProducts.companiesDates.city }}</p>
+    </div>
 
+    <!-- seleccionar menu -->
     <div class="flex flex-col justify-center my-7 items-center max-w-lg mx-auto lg:rounded-md">
       <p class="italic text-xs text-center">Selecciona el menu facilmente desde la demo</p>
       <select 
