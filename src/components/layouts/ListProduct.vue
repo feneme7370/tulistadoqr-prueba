@@ -131,7 +131,7 @@
 
                         <!-- boton de enviar -->
                         <div>
-                            <a :href="'https://api.whatsapp.com/send/?phone='+urlDeWhatsapp+'&amp;text='+encodeURIComponent('\*Quiero pedir\*\n'+totalWsp+'\n\*Nombre:\* '+nameClient+'\n\*Direccion:\* '+adressClient+'\n\*Metodo:\* '+formatClient+'.')" target="_blank"
+                            <a :href="'https://api.whatsapp.com/send/?phone='+urlDeWhatsapp+'&amp;text='+encodeURIComponent('\*Quiero pedir:\* \n'+totalWsp+'\n\*Nombre:\* '+nameClient+'\n\*Direccion:\* '+adressClient+'\n\*Metodo:\* '+formatClient+'.')" target="_blank"
                                 class="block w-full px-2 py-3 mt-3 text-base font-semibold text-center text-white bg-gray-900 rounded shadow-sm hover:bg-primary-600">Pedir por Whatsapp</a>
                         </div>
 
