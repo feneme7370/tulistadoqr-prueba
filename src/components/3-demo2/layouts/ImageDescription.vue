@@ -12,7 +12,7 @@
 
 <template>
 
-<section class="w-full h-40 relative bg-gray-700 overflow-hidden bg-center bg-no-repeat border-t-2 border-b-2 border-secondary-300">
+<section class="w-full h-40 relative bg-gray-700 overflow-hidden bg-center bg-no-repeat border-t-2 border-b-2 border-secondary-500">
 
     <!-- imagen -->
     <div class="h-40 w-full">

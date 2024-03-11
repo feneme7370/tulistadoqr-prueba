@@ -6,13 +6,14 @@
     // Import Swiper Vue.js components
     import { Swiper, SwiperSlide } from 'swiper/vue';
     // import Swiper core and required modules
-    import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
+    import { Navigation, Pagination, Scrollbar, A11y, EffectCoverflow } from 'swiper/modules';
 
     // Import Swiper styles
     import 'swiper/css';
     import 'swiper/css/navigation';
     import 'swiper/css/pagination';
     import 'swiper/css/scrollbar';
+    import 'swiper/css/effect-coverflow';
 
     // recibir datos desde home
     const props = defineProps({
@@ -20,7 +21,7 @@
         addToListButton: {type: Number},
     })
 
-    const modules = [Navigation, Pagination, Scrollbar, A11y];
+    const modules = [Navigation, Pagination, Scrollbar, A11y, EffectCoverflow];
 
 </script>
 
@@ -28,12 +29,22 @@
     <div>
         <swiper
             :modules="modules"
-            :effect="'cards'"
+            :effect="'coverflow'"
             :slides-per-view="1.8"
             :space-between="5"
             navigation
             :pagination="{ clickable: true }"
             :scrollbar="{ draggable: true }"
+
+            :grabCursor="true"
+            :centeredSlides="true"
+            :coverflowEffect="{
+            rotate: 50,
+            stretch: 0,
+            depth: 100,
+            modifier: 1,
+            slideShadows: false,
+            }"
         >
       
             <swiper-slide v-for="product in offersDates" :key="product.id" class="px-1 mb-10">

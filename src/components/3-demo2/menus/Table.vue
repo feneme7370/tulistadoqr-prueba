@@ -27,7 +27,7 @@
       <div v-if="categoriesDates.some(category => category.level_id === level.id)">
 
         <!-- titulo -->
-        <h2 class="text-center font-bold text-3xl italic mb-5">{{ level.name }}</h2>
+        <h2 class="text-center font-bold italic underline text-3xl mb-2">{{ level.name }}</h2>
     
         <!-- recorrer categorias -->
         <div v-for="category in categoriesDates" :key="category.id">
@@ -38,7 +38,7 @@
             <div v-if="category.level_id == level.id">
       
               <!-- imagen y titulo de la categoria -->
-              <div class="flex justify-start items-center mt-4 gap-3 sm:px-3 bg-secondary-200 h-20 lg:rounded-md">
+              <div class="flex justify-start items-center mt-4 gap-3 sm:px-3 bg-secondary-800 text-gray-50 h-20 pl-10 lg:rounded-md">
                 <ImgTumbLightbox 
                         class="w-12 h-12 rounded-r-xl overflow-hidden"
                         :uri="urlBack()+category.image_hero_uri"

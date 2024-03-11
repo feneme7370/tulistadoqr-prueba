@@ -42,11 +42,11 @@
       <!-- evaluar si tiene categorias, sino no se muestra -->
       <div v-if="categoriesDates.some(category => category.level_id === level.id)">
 
-        <hr class="mx-10 mb-5 border-secondary-300">
+        <hr class="mx-10 mb-5 border-secondary-500">
         
         <!-- titulo de la categoria general -->
         <div class="flex justify-center items-center gap-3 px-3">
-          <h2 class="text-center font-bold text-4xl mb-2">{{ level.name }}</h2>
+          <h2 class="text-center font-bold italic underline text-3xl mb-2">{{ level.name }}</h2>
         </div>
   
         <!-- recorrer las categorias -->
@@ -59,7 +59,7 @@
             <div v-if="category.level_id === level.id">
             
               <!-- datos de las categorias -->
-              <div :id="'accordion-collapse-heading-' + (index + 1)" class="bg-secondary-200 h-20 mb-1 lg:rounded-md transition-all ease-in-out animate__animated animate__flipInX ">
+              <div :id="'accordion-collapse-heading-' + (index + 1)" class="bg-secondary-800 text-gray-50 h-20 mb-1 lg:rounded-md transition-all ease-in-out animate__animated animate__flipInX ">
                 <button
                   type="button"
                   class="accordion-button py-3 mb-2 w-full flex justify-between items-center"
@@ -68,9 +68,9 @@
                 >
     
                   <!-- imagen de la categoria y titulo -->
-                  <div class="flex justify-start items-center gap-3">
+                  <div class="flex justify-start items-center gap-3 pl-10">
                     <ImgTumbLightbox v-if="category.image_hero_uri"
-                        class="w-12 h-12 rounded-r-xl overflow-hidden"
+                        class="w-12 h-12 rounded-sm overflow-hidden"
                         :uri="urlBack()+category.image_hero_uri"
                         :name="category.image_hero"
                         :nameImg="category.name"

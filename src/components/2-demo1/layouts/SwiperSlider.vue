@@ -8,11 +8,14 @@
     // import Swiper core and required modules
     import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
 
+    // EffectCards - import 'swiper/css/effect-cards' - :effect="'cards'"
+    
     // Import Swiper styles
     import 'swiper/css';
     import 'swiper/css/navigation';
     import 'swiper/css/pagination';
     import 'swiper/css/scrollbar';
+    
 
     // recibir datos desde home
     const props = defineProps({
@@ -28,9 +31,10 @@
     <div>
         <swiper
             :modules="modules"
-            :effect="'cards'"
+
             :slides-per-view="1.8"
             :space-between="5"
+            :loop="true"
             navigation
             :pagination="{ clickable: true }"
             :scrollbar="{ draggable: true }"

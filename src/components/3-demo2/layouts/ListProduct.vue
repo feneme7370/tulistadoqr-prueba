@@ -45,7 +45,7 @@
 
         <!-- boton flotante para listado -->
         <div class="fixed end-2 top-16 z-50">
-            <button data-modal-target="list-product-modal" data-modal-toggle="list-product-modal" class="bg-secondary-700 text-gray-50 font-bold border-2 border-secondary-900 rounded-2xl" type="button">
+            <button data-modal-target="list-product-modal" data-modal-toggle="list-product-modal" class="bg-secondary-700 text-gray-50 font-bold border-2 border-secondary-900 rounded-full" type="button">
                 <SocialIcons icon="cart" class="p-4"/>
             </button>
         </div>
@@ -61,7 +61,7 @@
                     <!-- vaciar lista y cerrar modal -->
                     <div class="w-full flex justify-between items-center">
 
-                        <button class=" bg-secondary-200 text-secondary-900 text-xs font-medium my-2 me-2 px-3 py-2 rounded"  @click="apiList.clearList">Vaciar lista</button>
+                        <button class=" bg-secondary-800 text-secondary-200 text-xs font-bold my-2 me-2 px-3 py-2 rounded"  @click="apiList.clearList">Vaciar lista</button>
 
                         <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center " data-modal-hide="list-product-modal">
                             <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
@@ -72,7 +72,7 @@
 
                     </div>
 
-                    <hr class="border-secondary-300 mt-1 w-10/12 mx-auto">
+                    <hr class="border-secondary-500 mt-1 w-10/12 mx-auto">
 
                     <!-- listado de productos a comprar -->
                     <div v-for="product in apiList.ListProduct">
@@ -94,13 +94,13 @@
                     
                             <!-- ver precio total del producto y botones de sumar y restar -->
                             <div class="flex items-center gap-1">
-                                <button class="block whitespace-nowrap  bg-secondary-100 text-secondary-800 text-sm font-medium my-2 px-2.5 py-0.5 w-6 h-6 rounded " @click="apiList.lessAmount(product.id)">-</button>
+                                <button class="block whitespace-nowrap  bg-secondary-200 text-secondary-900 text-sm font-medium my-2 px-2.5 py-0.5 w-6 h-6 rounded " @click="apiList.lessAmount(product.id)">-</button>
                                 <span class="text-gray-700 text-xs font-medium">{{ formatCurrency(product.cantidad * ((product.price_seller > 0 && product.price_seller < product.price_original) ? product.price_seller : product.price_original))}}</span>
-                                <button class="block whitespace-nowrap  bg-secondary-100 text-secondary-800 text-sm font-medium my-2 px-2.5 py-0.5 w-6 h-6 rounded " @click="apiList.moreAmount(product.id)">+</button>
+                                <button class="block whitespace-nowrap  bg-secondary-200 text-secondary-800 text-sm font-medium my-2 px-2.5 py-0.5 w-6 h-6 rounded " @click="apiList.moreAmount(product.id)">+</button>
                             </div>
                         </div>
 
-                        <hr class="border-secondary-300 mb-1 w-10/12 mx-auto">
+                        <hr class="border-secondary-500 mb-1 w-10/12 mx-auto">
                     
                     </div>
                     
@@ -115,7 +115,7 @@
                     </div>
                     <p v-else class="font-bold italic text-center my-5">Agregue productos a su pedido</p>
 
-                    <hr class="border-secondary-300 mb-1 w-10/12 mx-auto">
+                    <hr class="border-secondary-500 my-3 w-10/12 mx-auto">
 
                     <!-- datos del cliente a llenar -->
                     <div class="w-full">

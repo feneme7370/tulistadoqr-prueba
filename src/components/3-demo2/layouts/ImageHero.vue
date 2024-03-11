@@ -25,7 +25,7 @@
     <!-- imagen de logo -->
     <img 
         loading="lazy"
-        class="absolute border border-gray-800 object-cover h-24 w-24 right-5 -bottom-10"
+        class="absolute border border-gray-800 object-cover h-24 w-24 left-10 -bottom-16"
         :src="urlBack()+companiesDates.image_logo_uri+ companiesDates.image_logo" 
         alt="imagen logo"
     >

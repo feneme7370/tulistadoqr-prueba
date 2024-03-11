@@ -59,7 +59,7 @@
       />
 
       <!-- direccion, localidad y boton a whatsapp -->
-      <div class="p-2 flex flex-col gap-2">
+      <div class="p-2 flex flex-col items-end gap-2">
         <p ><a class="flex items-center gap-1 text-secondary-800 hover:underline" target="_blank" :href="'https://api.whatsapp.com/send/?phone='+urlDeWhatsapp+'&amp;text='+encodeURIComponent('\*Quiero consultar\*: \n')">
           <SocialIcons icon="whatsapp"/>
           <span>Enviar WhatsApp</span>
