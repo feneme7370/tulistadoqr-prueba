@@ -1,4 +1,6 @@
 <script setup>
+  import { RouterLink, useRouter } from 'vue-router'
+  import router from '@/router';
   import { ref, onMounted, watch } from 'vue';
   import SocialIcons from '@/components/sistem/SocialIcons.vue';
 
@@ -19,6 +21,8 @@
   // importar api de datos
   import { useProductsStore } from '@/stores/products'
   const apiProducts = useProductsStore()
+
+  const router = useRouter()
 
   // cargar datos con id
   onMounted(async ()=>{
