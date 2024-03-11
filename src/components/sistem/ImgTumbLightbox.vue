@@ -1,4 +1,5 @@
 <script setup>
+    // recibir datos desde home
     const props = defineProps({
         uri: {type: String, required: true},
         name: {type: String, required: true},
@@ -7,21 +8,24 @@
         tumb: {type: String},
     })
 
+    // config de lightbox
     lightbox.option({
-            'alwaysShowNavOnTouchDevices': true,
-            'showImageNumberLabel': true,
-            'imageFadeDuration': 10,
-            'resizeDuration': 10,
-            'fadeDuration': 10,
-            'disableScrolling': true,
-            'wrapAround': true,
-            'albumLabel': "Imagen %1 de %2",
-            })
+        'alwaysShowNavOnTouchDevices': true,
+        'showImageNumberLabel': true,
+        'imageFadeDuration': 10,
+        'resizeDuration': 10,
+        'fadeDuration': 10,
+        'disableScrolling': true,
+        'wrapAround': true,
+        'albumLabel': "Imagen %1 de %2",
+    })
+
 </script>
 
 <template>
+
+    <!-- enlace para ampliar imagen -->
     <a 
-        class=""
         :href="uri + name" 
         :data-lightbox="nameAlbum ? nameAlbum : name"
         :data-title="nameImg ? nameImg : name"
@@ -30,7 +34,7 @@
             loading="lazy"
             class="w-full h-full object-cover object-center"
             :src="tumb ? uri + name : uri + 'tumb_' + name" 
-            alt="imagen portada"
+            alt="imagen"
         >
     </a>
 </template>

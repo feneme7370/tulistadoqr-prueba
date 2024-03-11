@@ -2,7 +2,7 @@
     // componentes de vue
     import { defineProps } from 'vue';
     // importar card offers
-    import CardProductOffer from '@/components/2-demo1/cards/CardProductOffer.vue';
+    import CardProductOffer from '@/components/3-demo2/cards/CardProductOffer.vue';
     // Import Swiper Vue.js components
     import { Swiper, SwiperSlide } from 'swiper/vue';
     // import Swiper core and required modules
