@@ -42,12 +42,13 @@
               <!-- barra con imagen y titulo de la categoria -->
               <div class="flex justify-start items-center gap-3 sm:px-3 bg-primary-200 h-20 lg:rounded-md">
                 <ImgTumbLightbox 
-                        class="w-12 h-12 rounded-r-xl overflow-hidden"
-                        :uri="urlBack()+category.image_hero_uri"
-                        :name="category.image_hero"
-                        :nameImg="category.name"
+                      v-if="category.image_hero"
+                      class="w-12 h-12 rounded-r-xl overflow-hidden"
+                      :uri="urlBack()+category.image_hero_uri"
+                      :name="category.image_hero"
+                      :nameImg="category.name"
                     />
-                <h3 class="font-semibold text-xl mb-2">{{ category.name }}</h3>
+                <h3 class="font-semibold text-xl ml-3 mb-2">{{ category.name }}</h3>
                 <div></div>
               </div>
           

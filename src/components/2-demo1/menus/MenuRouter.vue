@@ -39,13 +39,17 @@
         <div v-if="categoriesDates.some(category => category.level_id === level.id)" >
 
           <!-- imagen y nombre de la categoria general, con evento click para marcar id -->
-          <div @click="levelIdSelected(level.id)" class="my-2 bg-center bg-no-repeat w-28 h-28 px-1 mx-5 relative animate__animated animate__backInUp animate__faster">
+          <div @click="levelIdSelected(level.id)" 
+            class="my-2 bg-center bg-no-repeat px-1 mx-5 relative animate__animated animate__backInUp animate__faster"
+            :class="level.image_hero ? 'w-28 h-28' : 'w-28 h-5'"
+          >
             
             <img 
-                loading="lazy"
-                class="w-full h-full object-cover rounded-lg"
-                :src="urlBack()+level.image_hero_uri+level.image_hero" 
-                alt="imagen portada"
+              v-if="level.image_hero"
+              loading="lazy"
+              class="w-full h-full object-cover rounded-lg"
+              :src="urlBack()+level.image_hero_uri+level.image_hero" 
+              alt="imagen portada"
             >
             
             <div class="absolute right-0 -bottom-5 left-0 px-1 mx-auto max-w-screen-xl text-center flex items-center justify-center flex-col cursor-pointer">
@@ -77,14 +81,16 @@
             <!-- imagen y titulo de las categorias correspondientes al nivel seleccionado -->
             <div 
               v-if="category.level_id == levelId" 
-              class="animate__animated animate__backInUp animate__faster mb-10 bg-center bg-no-repeat w-20 h-20 cursor-pointer relative mx-5"
               @click="categoryId = category.id"
+              class="animate__animated animate__backInUp animate__faster mb-10 bg-center bg-no-repeat  cursor-pointer relative mx-5"
+              :class="category.image_hero ? 'w-20 h-20' : 'w-20 h-5'"
             >
                 <img 
-                    loading="lazy"
-                    class="w-20 h-20 object-cover rounded-lg"
-                    :src="urlBack()+category.image_hero_uri+category.image_hero" 
-                    alt="imagen portada"
+                  v-if="category.image_hero"
+                  loading="lazy"
+                  class="w-20 h-20 object-cover rounded-lg"
+                  :src="urlBack()+category.image_hero_uri+category.image_hero" 
+                  alt="imagen portada"
                 >
 
                 <div class="absolute right-0 -bottom-5 left-0 mx-auto text-center flex items-center justify-center flex-col">

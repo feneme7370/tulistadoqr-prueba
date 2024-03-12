@@ -69,13 +69,14 @@
     
                   <!-- imagen de la categoria y titulo -->
                   <div class="flex justify-start items-center gap-3">
-                    <ImgTumbLightbox v-if="category.image_hero_uri"
+                    <ImgTumbLightbox 
+                        v-if="category.image_hero"
                         class="w-12 h-12 rounded-r-xl overflow-hidden"
                         :uri="urlBack()+category.image_hero_uri"
                         :name="category.image_hero"
                         :nameImg="category.name"
                     />
-                    <span class="font-semibold text-xl">{{ category.name }}</span>
+                    <span class="font-semibold text-xl ml-3">{{ category.name }}</span>
                   </div>
       
                   <!-- icono arrow down -->
