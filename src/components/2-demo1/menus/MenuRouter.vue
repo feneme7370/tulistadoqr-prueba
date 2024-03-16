@@ -32,7 +32,7 @@
     <h2 class="text-center font-bold text-2xl mb-5">Categorias Generales</h2>
 
     <!-- listado de niveles -->
-    <div class="flex flex-wrap justify-center items-center py-10 bg-primary-200">
+    <div class="flex flex-wrap justify-center items-center gap-3 py-10 bg-primary-200">
       <div v-for="level in levelsDates" :key="level.id" >
         
         <!-- mostrar categorias generales que tengan categorias asignadas -->
@@ -54,7 +54,7 @@
             
             <div class="absolute right-0 -bottom-5 left-0 px-1 mx-auto max-w-screen-xl text-center flex items-center justify-center flex-col cursor-pointer">
               <a class="bg-primary-100 rounded-lg block w-full border-2 border-primary-200">
-                <h1 class="my-2 text-base sm:text-xl font-extrabold text-gray-800 ">{{ level.name }}</h1>
+                <h1 class="my-2 text-base sm:text-xl truncate font-extrabold text-gray-800 ">{{ level.name }}</h1>
               </a>
             </div>
     
@@ -94,7 +94,7 @@
                 >
 
                 <div class="absolute right-0 -bottom-5 left-0 mx-auto text-center flex items-center justify-center flex-col">
-                    <a class="bg-primary-100 rounded-lg w-full border-2 border-primary-200 py-1 text-sm text-gray-800">
+                    <a class="bg-primary-100 rounded-lg w-full truncate border-2 border-primary-200 py-1 text-sm text-gray-800">
                       {{ category.name }}
                     </a>
                 </div>
