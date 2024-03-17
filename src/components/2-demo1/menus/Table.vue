@@ -36,8 +36,10 @@
       <!-- mostrar solo las que tengan categorias asignadas -->
       <div v-if="categoriesDates.some(category => category.level_id === level.id)">
 
+        <hr class="mx-10 mb-5 t_border-hr">
+
         <!-- titulo -->
-        <h2 class="text-center font-bold text-3xl italic mb-5">{{ level.name }}</h2>
+        <h2 class="t_level-title">{{ level.name }}</h2>
     
         <!-- recorrer categorias -->
         <!-- <div v-for="category in categoriesDates" :key="category.id"> -->
@@ -49,15 +51,15 @@
             <!-- <div v-if="category.level_id == level.id"> -->
       
               <!-- imagen y titulo de la categoria -->
-              <div class="flex justify-start items-center mt-4 gap-3 sm:px-3 bg-primary-200 h-20 lg:rounded-md">
+              <div class="t_bg-category">
                 <ImgTumbLightbox 
                       v-if="category.image_hero"
-                      class="w-12 h-12 rounded-r-xl overflow-hidden"
+                      class="t_bg-category-img"
                       :uri="urlBack()+category.image_hero_uri"
                       :name="category.image_hero"
                       :nameImg="category.name"
                     />
-                <h3 class="font-semibold text-xl ml-3 mb-2">{{ category.name }}</h3>
+                <h3 class="t_category-title">{{ category.name }}</h3>
                 <div></div>
               </div>
     

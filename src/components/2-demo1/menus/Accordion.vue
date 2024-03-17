@@ -53,12 +53,12 @@
       <!-- evaluar si tiene categorias, sino no se muestra -->
       <div v-if="categoriesDates.some(category => category.level_id === level.id)">
 
-        <hr class="mx-10 mb-5 border-primary-300">
+        <hr class="mx-10 mb-5 t_border-hr">
         
         <!-- titulo de la categoria general -->
-        <div class="flex justify-center items-center gap-3 px-3">
-          <h2 class="text-center font-bold text-4xl mb-2">{{ level.name }}</h2>
-        </div>
+        <!-- <div class="flex justify-center items-center gap-3 px-3"> -->
+          <h2 class="t_level-title">{{ level.name }}</h2>
+        <!-- </div> -->
   
         <!-- recorrer las categorias -->
         <div v-for="(category, index) in filterCategories(level.id)" :key="index">
@@ -70,10 +70,11 @@
             <!-- <div v-if="category.level_id === level.id"> -->
             
               <!-- datos de las categorias -->
-              <div :id="'accordion-collapse-heading-' + (index + 1)" class="bg-primary-200 h-20 mb-1 lg:rounded-md transition-all ease-in-out animate__animated animate__flipInX ">
+              <div :id="'accordion-collapse-heading-' + (index + 1)" class="t_bg-category transition-all ease-in-out animate__animated animate__flipInX ">
+
                 <button
                   type="button"
-                  class="accordion-button py-3 mb-2 w-full flex justify-between items-center"
+                  class="accordion-button w-full flex justify-between items-center"
                   :class="{ 'active': activeIndices.includes(index) }"
                   @click="toggleAccordion(index)"
                 >
@@ -82,12 +83,12 @@
                   <div class="flex justify-start items-center gap-3">
                     <ImgTumbLightbox 
                         v-if="category.image_hero"
-                        class="w-12 h-12 rounded-r-xl overflow-hidden"
+                        class="t_bg-category-img"
                         :uri="urlBack()+category.image_hero_uri"
                         :name="category.image_hero"
                         :nameImg="category.name"
                     />
-                    <span class="font-semibold text-xl ml-3">{{ category.name }}</span>
+                    <span class="t_category-title">{{ category.name }}</span>
                   </div>
       
                   <!-- icono arrow down -->
@@ -103,6 +104,7 @@
                   </svg>
     
                 </button>
+                
               </div>
     
               <!-- datos de los productos -->

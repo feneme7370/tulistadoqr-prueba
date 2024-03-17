@@ -38,11 +38,14 @@
 <template>
 
   <div>
+    <hr class="mx-10 mb-5 t_border-hr">
+
     <!-- titulo de categoria general -->
-    <h2 class="text-center font-bold text-2xl mb-5">Categorias Generales</h2>
+    <h2 class="t_level-title">Categorias Generales</h2>
 
     <!-- listado de niveles -->
-    <div class="flex flex-wrap justify-center items-center gap-3 py-10 bg-primary-200">
+    <!-- <div class="flex flex-wrap justify-center items-center gap-3 py-10 bg-primary-200"> -->
+    <div class="t_bg-category-menurouter">
       <div v-for="level in levelsDates" :key="level.id" >
         
         <!-- mostrar categorias generales que tengan categorias asignadas -->
@@ -57,7 +60,7 @@
             <img 
               v-if="level.image_hero"
               loading="lazy"
-              class="w-full h-full object-cover rounded-lg"
+              class="t_bg-category-menurouter-img"
               :src="urlBack()+level.image_hero_uri+level.image_hero" 
               alt="imagen portada"
             >
@@ -79,7 +82,7 @@
     <!-- listado de categorias segun level -->
     <div v-if="levelId" class="mt-5">
       <!-- titulo -->
-      <h2 class="text-center font-bold text-lg mb-5">Categorias</h2>
+      <h2 class="text-center t_category-title">Categorias</h2>
 
       <!-- listado de categorias -->
       <div class="flex flex-wrap items-center justify-center">
@@ -99,9 +102,9 @@
                 <img 
                   v-if="category.image_hero"
                   loading="lazy"
-                  class="w-20 h-20 object-cover rounded-lg"
+                  class="t_bg-category-menurouter-img"
                   :src="urlBack()+category.image_hero_uri+category.image_hero" 
-                  alt="imagen portada"
+                  alt="imagen category"
                 >
 
                 <div class="absolute -bottom-5 mx-auto min-w-20 text-center flex items-center justify-center flex-col">
