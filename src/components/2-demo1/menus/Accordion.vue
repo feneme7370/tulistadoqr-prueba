@@ -32,6 +32,7 @@
   // array donde se expanden las categorias
   const activeIndices  = ref([]);
   const toggleAccordion = (index) => {
+    
       const indexPosition = activeIndices.value.indexOf(index);
         if (indexPosition === -1) {
           // Si el índice no está en el array, lo añade
@@ -70,13 +71,13 @@
             <!-- <div v-if="category.level_id === level.id"> -->
             
               <!-- datos de las categorias -->
-              <div :id="'accordion-collapse-heading-' + (index + 1)" class="t_bg-category transition-all ease-in-out animate__animated animate__flipInX ">
+              <div :id="'accordion-collapse-heading-' + (index + 1) + '-' + category.level_id" class="t_bg-category transition-all ease-in-out animate__animated animate__flipInX ">
 
                 <button
                   type="button"
                   class="accordion-button w-full flex justify-between items-center"
                   :class="{ 'active': activeIndices.includes(index) }"
-                  @click="toggleAccordion(index)"
+                  @click="toggleAccordion(index+'-'+category.level_id)"
                 >
     
                   <!-- imagen de la categoria y titulo -->
@@ -109,10 +110,10 @@
     
               <!-- datos de los productos -->
               <div
-                :id="'accordion-collapse-body-' + (index + 1)"
+                :id="'accordion-collapse-body-' + (index + 1) + '-' + category.level_id"
                 class="accordion-body"
-                :aria-labelledby="'accordion-collapse-heading-' + (index + 1)"
-                v-show="activeIndices.includes(index)"
+                :aria-labelledby="'accordion-collapse-heading-' + (index + 1) + '-' + category.level_id"
+                v-show="activeIndices.includes(index+'-'+category.level_id)"
               >
 
                 <div :class="{ 'border-t-0': index === 0 }">
