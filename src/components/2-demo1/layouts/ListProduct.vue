@@ -44,19 +44,19 @@
     <div class="px-2" >
 
         <!-- boton flotante para listado -->
-        <div class="fixed end-2 top-16 z-50">
+        <div class="fixed top-8 right-5 md:right-auto z-50">
             <button data-modal-target="list-product-modal" data-modal-toggle="list-product-modal" class="bg-primary-700 text-gray-50 font-bold border-2 border-primary-900 rounded-2xl" type="button">
                 <SocialIcons icon="cart" class="p-4"/>
             </button>
         </div>
 
         <!-- modal del carrito -->
-        <div id="list-product-modal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+        <div id="list-product-modal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 bg-gray-800 bg-opacity-80 justify-center items-center w-full md:inset-0 p-3 h-full max-h-full">
 
-            <div class="relative p-4 w-full max-w-2xl max-h-full">
+            <div class="relative m-4 w-full max-w-2xl max-h-full">
                 
                 <!-- Modal content -->
-                <div class="relative bg-white p-4 rounded-lg shadow ">
+                <div class="relative bg-white px-4 pt-5 pb-10 rounded-lg shadow ">
                     
                     <!-- vaciar lista y cerrar modal -->
                     <div class="w-full flex justify-between items-center">

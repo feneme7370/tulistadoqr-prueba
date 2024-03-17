@@ -46,7 +46,7 @@
   <div class="bg-gray-300">
 
     <!-- contenedor de todos los datos -->
-    <div class="bg-primary-50 max-w-5xl mx-auto">
+    <div class="bg-primary-50 max-w-5xl mx-auto relative">
 
       <!-- portada -->
       <ImageHero 
@@ -56,7 +56,7 @@
 
       <!-- boton y listado modal de productos -->
       <ListProduct 
-        class=""
+        class="max-w-5xl"
         :companiesDates="apiProducts.companiesDates"
         :urlDeWhatsapp="urlDeWhatsapp"
         :class="apiProducts.companiesDates.list_product ? 'block' : 'hidden'"
