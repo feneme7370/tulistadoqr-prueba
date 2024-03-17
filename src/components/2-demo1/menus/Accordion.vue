@@ -18,6 +18,17 @@
       companiesDates: { type: Object, required: true },
   })
 
+
+  // mostrar solo las que pertenencen al level
+  const filterCategories = (levelId) => {
+    return props.categoriesDates.filter( category => category.level_id === levelId)
+  }
+
+  // mostrar solo las que pertenecen a la categoria
+  const filterProducts = (categoryId) => {
+    return props.productsDates.filter( product => product.category_id === categoryId)
+  }
+
   // array donde se expanden las categorias
   const activeIndices  = ref([]);
   const toggleAccordion = (index) => {
@@ -50,13 +61,13 @@
         </div>
   
         <!-- recorrer las categorias -->
-        <div v-for="(category, index) in categoriesDates" :key="index">
+        <div v-for="(category, index) in filterCategories(level.id)" :key="index">
 
           <!-- filtrar categorias que tenga productos, sino no se muestra -->
           <div v-if="productsDates.some(product => product.category_id === category.id)">
 
             <!-- solo mostrar la categoria correspondiente a la categoria general -->
-            <div v-if="category.level_id === level.id">
+            <!-- <div v-if="category.level_id === level.id"> -->
             
               <!-- datos de las categorias -->
               <div :id="'accordion-collapse-heading-' + (index + 1)" class="bg-primary-200 h-20 mb-1 lg:rounded-md transition-all ease-in-out animate__animated animate__flipInX ">
@@ -105,24 +116,26 @@
                 <div :class="{ 'border-t-0': index === 0 }">
                   
                   <!-- listados de productos de cada categoria -->
-                  <div v-for="product in productsDates" :key="product.id">
-                      <div v-if="product.category_id === category.id">
+                  <!-- <div v-for="product in productsDates" :key="product.id">
+                      <div v-if="product.category_id === category.id"> -->
     
                         <CardProduct 
+                          v-for="product in filterProducts(category.id)" 
+                          :key="product.id"
+                          
                           class="animate__animated animate__fadeInLeftBig animate__faster"
                           :product="product"
                           :addToListButton="companiesDates.membership.list_product"
                         />
     
-                      </div>
-                  </div>
+                  <!-- </div> -->
                 
                 </div>
               
               </div>
 
 
-            </div>
+            <!-- </div> -->
 
           </div>
         </div>

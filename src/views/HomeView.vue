@@ -25,16 +25,20 @@
         await apiProducts.loadDates(2)
   })
 
+  // const filtrarProductos = () => {
+  //   return apiProducts.productsDates.filter(product => product.id != 0)
+  // }
+
   const urlDeWhatsapp = ref('')
     
-    // Utilizar el hook watch para esperar cambios en props.companiesDates
-    watch(() => apiProducts.companiesDates, (newCompaniesDates) => {
-      // Verificar si props.companiesDates tiene datos antes de acceder a la URL de WhatsApp
-      if (newCompaniesDates && newCompaniesDates.socialMedia) {
-        const whatsappObj = newCompaniesDates.socialMedia.find(media => media.slug === 'whatsapp');
-        urlDeWhatsapp.value = whatsappObj ? whatsappObj.pivot.url : '';
-      }
-    });
+  // Utilizar el hook watch para esperar cambios en props.companiesDates
+  watch(() => apiProducts.companiesDates, (newCompaniesDates) => {
+    // Verificar si props.companiesDates tiene datos antes de acceder a la URL de WhatsApp
+    if (newCompaniesDates && newCompaniesDates.socialMedia) {
+      const whatsappObj = newCompaniesDates.socialMedia.find(media => media.slug === 'whatsapp');
+      urlDeWhatsapp.value = whatsappObj ? whatsappObj.pivot.url : '';
+    }
+  });
 </script>
 
 <template>
@@ -64,6 +68,7 @@
           <SocialIcons icon="whatsapp"/>
           <span>Enviar WhatsApp</span>
         </a></p>
+        <p class="italic"><span class="font-bold">Celular:</span> {{ apiProducts.companiesDates.phone }}</p>
         <p class="italic"><span class="font-bold">Direccion:</span> {{ apiProducts.companiesDates.adress }}</p>
         <p class="italic"><span class="font-bold">Localidad:</span> {{ apiProducts.companiesDates.city }}</p>
       </div>

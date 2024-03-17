@@ -15,6 +15,16 @@
       companiesDates: { type: Object, required: true },
   })
 
+  // mostrar solo las que pertenencen al level
+  const filterCategories = (levelId) => {
+    return props.categoriesDates.filter( category => category.level_id === levelId)
+  }
+
+  // mostrar solo las que pertenecen a la categoria
+  const filterProducts = (categoryId) => {
+    return props.productsDates.filter( product => product.category_id === categoryId)
+  }
+
 </script>
 
 <template>
@@ -31,13 +41,14 @@
         <h2 class="text-center font-bold text-3xl italic mb-5">{{ level.name }}</h2>
     
         <!-- recorrer categorias -->
-        <div v-for="category in categoriesDates" :key="category.id">
+        <div v-for="category in filterCategories(level.id)" :key="category.id">
+        <!-- <div v-for="category in categoriesDates" :key="category.id"> -->
 
           <!-- mostrar solo categorias que tengan productos -->
           <div v-if="productsDates.some(product => product.category_id === category.id)">
 
             <!-- mostrar solo categorias correspondientes a la categoria general -->
-            <div v-if="category.level_id == level.id">
+            <!-- <div v-if="category.level_id == level.id"> -->
       
               <!-- barra con imagen y titulo de la categoria -->
               <div class="flex justify-start items-center gap-3 sm:px-3 bg-primary-200 h-20 lg:rounded-md">
@@ -53,19 +64,22 @@
               </div>
           
               <!-- recorrer productos correspondientes a la categoria -->
-              <div v-for="product in productsDates" :key="product.id">
-                <div v-if="product.category_id == category.id">
+              <!-- <div v-for="product in productsDates" :key="product.id"> -->
+                <!-- <div v-if="product.category_id == category.id"> -->
                   
                   <CardProduct 
+                    v-for="product in filterProducts(category.id)" 
+                    :key="product.id"
+                    
                     class="animate__animated animate__faster animate__bounceIn"
                     :product="product"
                     :addToListButton="companiesDates.membership.list_product"
                   />
       
-                </div>
-              </div>
+                <!-- </div> -->
+              <!-- </div> -->
               
-            </div>
+            <!-- </div> -->
 
           </div>
         </div>

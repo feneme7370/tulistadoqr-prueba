@@ -23,6 +23,16 @@
     categoryId.value = ''
   }
 
+  // mostrar solo las que pertenencen al level
+  const filterCategories = (levelId) => {
+    return props.categoriesDates.filter( category => category.level_id === levelId)
+  }
+
+  // mostrar solo las que pertenecen a la categoria
+  const filterProducts = (categoryId) => {
+    return props.productsDates.filter( product => product.category_id === categoryId)
+  }
+
 </script>
 
 <template>
@@ -74,13 +84,14 @@
       <!-- listado de categorias -->
       <div class="flex flex-wrap items-center justify-center">
         <!-- recorrer categorias -->
-        <div v-for="category in categoriesDates" :key="category.id">
+        <!-- <div v-for="category in categoriesDates" :key="category.id"> -->
+        <div v-for="category in filterCategories(levelId)" :key="category.id">
           <!-- mostrar solo las que tengan productos asignados -->
           <div v-if="productsDates.some(product => product.category_id === category.id)">
 
             <!-- imagen y titulo de las categorias correspondientes al nivel seleccionado -->
+            <!-- v-if="category.level_id == levelId"  -->
             <div 
-              v-if="category.level_id == levelId" 
               @click="categoryId = category.id"
               class="animate__animated animate__backInUp animate__faster mb-10 bg-center bg-no-repeat  cursor-pointer relative mx-5 flex items-center justify-center flex-col"
               :class="category.image_hero ? 'w-20 h-20' : 'w-20 h-5'"
@@ -112,19 +123,22 @@
     <div v-if="categoryId" class="mt-5">
 
       <!-- recorrer productos -->
-      <div v-for="product in productsDates" :key="product.id">
+      <!-- <div v-for="product in productsDates" :key="product.id"> -->
   
         <!-- mostrar productos correspondientes a la categoria -->
-        <div v-if="product.category_id === categoryId">
+        <!-- <div v-if="product.category_id === categoryId"> -->
     
           <CardProduct 
+            v-for="product in filterProducts(categoryId)" 
+            :key="product.id"
+            
             class=" max-w-lg mx-auto lg:rounded-md animate__animated animate__backInUp animate__faster"
             :product="product"
             :addToListButton="companiesDates.membership.list_product"
           />
     
-        </div>
-      </div>
+        <!-- </div> -->
+      <!-- </div> -->
     </div>
 
   </div>
