@@ -16,9 +16,13 @@ const router = createRouter({
       component: CompanyView
     },
     {
-      path: '/:catchAll(.*)',
+      path: '/:pathMatch(.*)',
       redirect: '/'
     }
+    // {
+    //   path: '/:catchAll(.*)',
+    //   redirect: '/'
+    // }
   ]
 })
 
