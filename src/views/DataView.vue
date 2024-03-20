@@ -3,7 +3,7 @@
 </script>
 
 <template>
-
+<div>TuListadoQR</div>
 </template>
 
 <style scoped>
