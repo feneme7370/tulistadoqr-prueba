@@ -16,6 +16,9 @@
 
   import SwiperSlider from '@/components/2-demo1/layouts/SwiperSlider.vue'
 
+  import { useRouter, useRoute } from 'vue-router';
+  const router = useRouter()
+  const route = useRoute()
   // importar api de datos
   import { useProductsStore } from '@/stores/products'
   const apiProducts = useProductsStore()
@@ -81,7 +84,6 @@
           v-model="apiProducts.menuSelected"
           placeholder="Formato del menu" 
           class=" my-2 mx-5 px-4 py-2 text-center border font-bold bg-primary-200 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-gray-500 focus:border-gray-500 block w-3/4">
-          <!-- <option selected>Choose a country</option> -->
           <option class="text-sm font-light mx-auto italic" value="1">Desplegable</option>
           <option class="text-sm font-light mx-auto italic" value="2">Listado</option>
           <option class="text-sm font-light mx-auto italic" value="3">Secciones</option>
@@ -157,7 +159,9 @@
           <h2 class="text-center font-bold text-4xl mb-5">Sugeridos</h2>
         
             <CardProductSuggestion 
-              v-for="suggetion in apiProducts.suggestionsDates" :key="suggetion.id"
+              v-for="suggetion in apiProducts.suggestionsDates" 
+              :key="suggetion.id"
+              
               :product="suggetion"
               :addToListButton="apiProducts.companiesDates.list_product"
             />

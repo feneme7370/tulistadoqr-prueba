@@ -2,8 +2,9 @@
     // importar iconos
     import SocialIcons from '@/components/sistem/SocialIcons.vue'
 
+    import { ref, watch } from 'vue';
     // helper de uri
-    import { urlBack, urlFront } from '@/helpers/config'
+    import { urlBack } from '@/helpers/config'
 
     const props = defineProps({
         companiesDates: {type: Object, required: true},
@@ -13,6 +14,11 @@
     const date = new Date()
     const dateYear = date.getFullYear()
 
+    const img_logo = ref('')    
+    // Utilizar el hook watch para esperar cambios en props.companiesDates
+    watch(() => props.companiesDates, () => {
+        img_logo.value = urlBack()+props.companiesDates.image_logo_uri+props.companiesDates.image_logo;
+    });
 </script>
 
 <template>
@@ -31,7 +37,7 @@
                 <a class="flex items-center justify-center">
                     <img
                         loading="lazy" 
-                        :src="urlBack()+companiesDates.image_logo_uri+ companiesDates.image_logo" 
+                        :src="img_logo" 
                         class="h-8 me-3" 
                         alt="Logo" 
                     />

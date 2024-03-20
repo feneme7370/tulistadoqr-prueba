@@ -1,12 +1,19 @@
 <script setup>
 
     // importar configuraciones
-    import { urlBack, urlFront } from '@/helpers/config'
+    import { urlBack } from '@/helpers/config'
 
+    import { ref, watch } from 'vue';
     // recibir datos
     const props = defineProps({
         companiesDates: {type: Object, required: true}
     })
+
+    const img_hero = ref('')    
+    // Utilizar el hook watch para esperar cambios en props.companiesDates
+    watch(() => props.companiesDates, () => {
+        img_hero.value = urlBack()+props.companiesDates.image_hero_uri+props.companiesDates.image_hero;
+    });
 
 </script>
 
@@ -16,7 +23,7 @@
 
     <!-- imagen -->
     <div class="h-40 w-full">
-        <img :src="urlBack()+companiesDates.image_hero_uri+ companiesDates.image_hero" alt="imagen portada" class="w-full object-cover opacity-20">
+        <img :src="img_hero" alt="imagen portada" class="w-full object-cover opacity-20">
     </div>
 
     <!-- texto sobre la imagen -->

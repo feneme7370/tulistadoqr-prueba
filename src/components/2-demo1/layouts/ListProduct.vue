@@ -75,7 +75,7 @@
                     <hr class="border-primary-300 mt-1 w-10/12 mx-auto">
 
                     <!-- listado de productos a comprar -->
-                    <div v-for="product in apiList.ListProduct">
+                    <div v-for="product in apiList.ListProduct" :key="product.id">
                     
                         <div class="flex items-center justify-between gap-1 my-2">
 

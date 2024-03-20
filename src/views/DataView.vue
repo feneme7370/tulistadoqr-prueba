@@ -1,5 +1,5 @@
 <script setup>
-console.log('hola');
+
 </script>
 
 <template>
