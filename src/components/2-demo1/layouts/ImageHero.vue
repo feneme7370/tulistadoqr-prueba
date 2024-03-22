@@ -24,7 +24,7 @@
     <!-- imagen de portada -->
     <img 
         loading="lazy"
-        class="w-full opacity-30 object-cover min-h-48"
+        class="w-full opacity-20 object-cover min-h-48 max-h-96" 
         :src="img_hero" 
         alt="imagen portada"
     >
